@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const funcionFlecha = (...argumentos) => {
+            console.log(argumentos.length);
+            if (argumentos.length > 3) {
+                let aux;
+                console.log("antes"+argumentos[0]);
+                console.log("antes"+argumentos[2]);
+                aux = argumentos[0];
+                argumentos[0] = argumentos[2]
+                argumentos[2] = aux;
+                console.log("despues"+argumentos[0]);
+                console.log("despues"+argumentos[2]);
+            }
+        };
+
+        funcionFlecha(1,4);
+
+        funcionFlecha(1,2,7,3,4);
+    </script>
+</body>
+</html>

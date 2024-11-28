@@ -1,0 +1,9 @@
+services:
+  web:
+#    image: php:8.3-apache
+    build: ./imagenes/.
+    ports:
+      - 8800:80
+    volumes:
+      - ./../app:/var/www/html
+    container_name: web

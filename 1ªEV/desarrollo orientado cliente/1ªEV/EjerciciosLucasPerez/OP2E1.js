@@ -1,0 +1,1 @@
+alert("Hola a todo el Mundo!\nQué facil es añadir 'comillas simples'\ny “comillas dobles”");

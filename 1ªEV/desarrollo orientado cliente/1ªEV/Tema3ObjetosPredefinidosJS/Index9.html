@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        const colors = ["red", "yellow", "blue"];
+        colors[5] = "purple";
+        colors.forEach((item, index) => {
+            console.log(`${index}: ${item}`);
+            console.log(colors[4]);
+        });
+
+        // for (i = 0; i < 7; i++) {
+        //     console.log(colors[i]);
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!--Ej1-->
+    <h3>1.</h3>
+    <form>
+        <label for="nombre">Ingrese su nombre:  </label>
+        <input type="text" id="nombre1" name="nombre" /><br>
+        <label>Seleccione los lenguajes que conoce</label><br>
+        <input type="checkbox" id="Java" name="Java" value="Java"/>
+        <label for="Java">Java</label><br>
+        <input type="checkbox" id="C++" name="C++" value="C++"/>
+        <label for="C++">C++</label><br>
+        <input type="checkbox" id="C" name="C" value="C"/>
+        <label for="C">C</label><br>
+        <input type="checkbox" id="C#" name="C#" value="C#"/>
+        <label for="C#">C#</label><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <br><br>
+
+    <!--Ej2-->
+    <h3>2.</h3>
+    <form>
+        <label for="nombre">Ingrese su nombre: </label>
+        <input type="text" id="nombre2" name="nombre"/><br>
+        <label for="mail">Ingrese su mail: </label>
+        <input type="text" id="mail" name="mail"/><br>  
+        <label>Comentarios:</label><br>
+        <textarea name="comentarios" id="comentarios"  rows="7" cols="55"></textarea><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <!--Ej3-->
+    <h3>3.</h3>
+    <form>
+        <label for="nombre">Ingrese su nombre:  </label>
+        <input type="text" id="nombre3" name="nombre" /><br>
+        <label>Seleccione el máximo nivel de estudios que tiene</label><br>
+        <label for="SinEstudios">Sin estudios</label>
+        <input type="radio" id="SinEstudios" name="SinEstudios"/><br>
+        <label for="Primario">Primario</label>
+        <input type="radio" id="Primario" name="Primario"/><br>
+        <label for="Secundario">Secundario</label>
+        <input type="radio" id="Secundario" name="Secundario"/><br>
+        <label for="Universitario">Universitario</label>
+        <input type="radio" id="Universitario" name="Universitario"/><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <!--Ej4-->
+    <h3>4.</h3>
+    <form>
+        <label> Seleccione uno o varios colores(Presione Ctrl para seleccionar varios colores)</label><br>
+        <select name="colores" id="colores" multiple>
+            <option value="Rojo">Rojo</option>
+            <option value="Verde">Verde</option>
+            <option value="Azul">Azul</option>
+            <option value="Amarillo">Amarillo</option>
+        </select><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <!--Ej5-->
+    <h3>5.</h3>
+    <form>
+        <label> Seleccione una fruta o verdura:</label>
+        <select name="FrutasYVerduras" id="FrutasYVerduras">
+            <optgroup label="Frutas">
+                <option value="Naranjas">Naranjas</option>
+                <option value="Manzanas">Manzanas</option>
+                <option value="Frutilla">Frutilla</option>
+                <option value="Durazno">Durazno</option>
+                <option value="Ciruela">Ciruela</option>
+            </optgroup>
+            <optgroup label="Verduras" >
+                <option value="Lechuga">Lechuga</option>
+                <option value="Acelga">Acelga</option>
+                <option value="Zapallo">Zapallo</option>
+                <option value="Papas">Papas</option>
+                <option value="Batatas">Batatas</option>
+                <option value="Zanahorias">Zanahorias</option>
+                <option value="Rabanitos">Rabanitos</option>
+                <option value="Calabaza">Calabaza</option>
+            </optgroup>
+        </select><br>
+        <input type="submit" value="Enviar">
+    </form>
+    
+</body>
+</html>

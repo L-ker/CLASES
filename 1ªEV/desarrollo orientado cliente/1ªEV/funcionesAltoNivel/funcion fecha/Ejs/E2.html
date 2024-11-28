@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="divInicioSesion" style="display:block">
+        <p>usuario valido: usuario, contraseña valida: contraseña</p><br>
+        <label>Usuario</label>
+        <input type="text" name="usuario" id="usuario"> <br>
+        <label>Contraseña</label>
+        <input type="text" name="contraseña" id="contraseña"><br>
+        <button onclick="inicioSesion()">Iniciar sesion</button>
+    </div>
+
+    <div id="divCalculadora" style="display:none;">
+        <input type="text" id="inputTexto" placeholder="Ingrese aqui las cantidades a retirar y ingresar"> <p id="escribir"></p><br>
+        <button onclick="comprobarDinero()">Comprobar dinero</button>        
+        <button onclick="sacarDinero()">Sacar dinero</button>        
+        <button onclick="ingresarDinero()">Ingresar dinero</button>
+
+    </div>
+
+
+    <script type="text/javascript" src="E2.js"></script>
+</body>
+</html>

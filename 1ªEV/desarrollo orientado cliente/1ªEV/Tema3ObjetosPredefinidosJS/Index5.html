@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="demo"></div>
+    <script>
+        let myVar = setInterval(myTimer, 1000);
+        function myTimer() {
+            let d = new Date();
+            let t = d.toLocaleTimeString(); //Devuelve el valor de la hora en un string,
+            document.getElementById("demo").innerHTML = t;
+        }
+    </script>
+</body>
+</html>

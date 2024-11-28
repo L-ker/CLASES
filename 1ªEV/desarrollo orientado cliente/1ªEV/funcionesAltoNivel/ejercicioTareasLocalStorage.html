@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Tareas</title>
+    <style>
+        .tarea {
+        margin: 5px 0;
+        text-decoration: line-through;
+        color: grey;
+      }
+    </style>
+  </head>
+  <body onload="cargarTareas()">
+    <h1>Gestor de Tareas</h1>
+    <input
+      type="text"
+      id="nueva-tarea"
+      placeholder="Escribe una nueva tarea..."
+    />
+    <button id="agregar-tarea" onclick="agregarTarea()">Agregar Tarea</button>
+
+    <ul id="lista-tareas"></ul>
+
+    <script>
+      let inputTexto = document.getElementById("nueva-tarea");
+      class Tarea {
+        constructor(nombreTarea, idCrear) {
+          this.id = idCrear;
+          this.nombre = nombreTarea;
+        }
+      }
+
+      function agregarTarea () {
+        if (inputTexto.value === "") {
+          alert("Introduce una tarae");
+        } else {
+          let tareas = JSON.parse(localStorage.getItem('tareas')) || [];
+
+          let id = tareas.length > 0 ? tareas[tareas.length - 1].id + 1 : 0;
+
+          let tarea = new Tarea(inputTexto.value, id);
+
+          tareas.push(tarea);
+
+          document.getElementById("lista-tareas").innerHTML += "<li>" +tarea.id+" "+ tarea.nombre+"</li>"+` <button onclick="eliminarTarea(${tarea.id})">Eliminar</button>`;
+
+          localStorage.setItem('tareas', JSON.stringify(tareas));
+
+          inputTexto.value = "";
+        }
+      }
+
+      
+      function eliminarTarea (idTarea){
+        let tareas = JSON.parse(localStorage.getItem('tareas'))
+        tareas = tareas.filter(tarea => tarea.id !== idTarea);
+        localStorage.setItem('tareas', JSON.stringify(tareas));
+        cargarTareas();
+      }
+
+      function cargarTareas() {
+        let tareas = JSON.parse(localStorage.getItem('tareas')) || [];
+        document.getElementById("lista-tareas").innerHTML = "";
+        for (tarea of tareas) {
+          document.getElementById("lista-tareas").innerHTML += `<li> ${tarea.id} ${tarea.nombre} </li> <button onclick="eliminarTarea(${tarea.id})">Eliminar</button>`;
+        }
+        // tareas.forEach(tarea => {
+        //   listaTareas.innerHTML += `<li>${tarea.nombre}</li><button onclick="eliminarTarea(${tarea.id})">Eliminar</button>`;
+        // });
+      }
+   
+    </script>
+  </body>
+</html>

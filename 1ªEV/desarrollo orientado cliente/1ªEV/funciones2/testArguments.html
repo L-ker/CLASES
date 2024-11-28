@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a id="escribir"></a>
+    <button onclick="ejecutar()">ejecutar</button>
+    <script>
+        function ejecutar () {
+            let array1 = [1,2,3,4,5,6,7];
+            let aray2 = [2,4,5,12,23,1];
+
+            console.log(media(...array1));
+            document.getElementById("escribir").innerHTML = media(...aray2);
+
+            function media () {
+                let media = 0;
+                for (let i = 0; i < arguments.length; i++) {
+                    console.log(arguments[i]);
+                    media += arguments[i];
+                }
+                console.log(media);
+                media = media / arguments.length;
+                return media;
+            }
+        }
+    </script>
+</body>
+</html>

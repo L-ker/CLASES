@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!--Ej1-->
+    <h3>1.</h3>
+    <table>
+        <tr>
+            <td><button number>7</button></td>
+            <td><button number>8</button></td>
+            <td><button number>9</button></td>
+            <td><button>/</button></td>
+        </tr>
+
+        <tr>
+            <td><button number>4</button></td>
+            <td><button number>5</button></td>
+            <td><button number>6</button></td>
+            <td><button>*</button></td>
+        </tr>
+
+        <tr>
+            <td><button number>1</button></td>
+            <td><button number>2</button></td>
+            <td><button number>3</button></td>
+            <td><button>+</button></td>
+        </tr>
+            
+        <tr>
+            <td><button number>0</button></td>
+            <td><button >=</button></td>
+            <td><button >-</button></td>
+        </tr>
+    </table>
+    <br><br>
+
+    <!--Ej2-->
+    <h3>2.</h3>
+    <form>
+        <label for="nombre">Ingrese su nombre: </label>
+        <input type="text" id="nombre" name="nombre"/><br>
+        <label for="nombre">Seleccione la foto: </label>
+        <input type="text" id="nombre2" name="nombre"/>
+        <input type="file" name="Examinar"><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <!--Ej3-->
+    <h3>3.</h3>
+    <form>
+        <fieldset>
+            <legend>Datos personales</legend>
+            <label for="nombreYapellido">Apellido y nombre: </label>
+            <input type="text" id="nombreYapellido" name="nombreYapellido"/><br>
+            <label for="docIdentidad">Documento de identidad: </label>
+            <input type="text" id="docIdentidad" name="docIdentidad"/><br>
+            <label for="fechaNacimiento">Fecha de nacimiento: </label>
+            <input type="text" id="fechaNacimiento" name="fechaNacimiento"/><br>
+            <label for="direccionPer">Dirección: </label>
+            <input type="text" id="direccionPer" name="direccionPer"/><br>
+        </fieldset>
+        <fieldset>
+            <legend>Datos laborales</legend>
+            <label for="nombreEmpresa">Nombre de la empresa: </label>
+            <input type="text" id="nombreEmpresa" name="nombreEmpresa"/><br>
+            <label for="actividad">Actividad: </label>
+            <input type="text" id="actividad" name="actividad"/><br>
+            <label for="direccionLab">Dirección: </label>
+            <input type="text" id="direccionLab" name="direccionLab"/><br>
+        </fieldset>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <!--Ej4-->
+    <h3>4.</h3>
+    <form>
+        <label for="ApellidoYNombre">Apellido y nombre</label>
+        <input type="text" id="ApellidoYNombre" name="ApellidoYNombre"/><br>
+        <label>¿Es mayor de edad?:</label><br>
+        <label>Si</label>
+        <input type="radio" id="si" name="siOno"/><br>
+        <label>No</label>
+        <input type="radio" id="no" name="siOno"/><br>
+        <label>Teléfono: </label>
+        <input type="text" value="453-"><br>
+        <textarea name="comentarios" id="comentarios" placeholder="Ingrese aqui sus comentarios" rows="7" cols="55"></textarea><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <!--Ej5-->
+    <h3>5.</h3>
+    <table>
+        <tr>
+            <td><input type="text" id="ApellidoYNombre" name="ApellidoYNombre" tabindex="1"/></td>
+            <td><input type="text" id="ApellidoYNombre" name="ApellidoYNombre" tabindex="4"/></td>
+            <td><input type="text" id="ApellidoYNombre" name="ApellidoYNombre" tabindex="7"/></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="ApellidoYNombre" name="ApellidoYNombre" tabindex="2"/></td>
+            <td><input type="text" id="ApellidoYNombre" name="ApellidoYNombre" tabindex="5"/></td>
+            <td><input type="text" id="ApellidoYNombre" name="ApellidoYNombre" tabindex="8"/></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="ApellidoYNombre" name="ApellidoYNombre" tabindex="3"/></td>
+            <td><input type="text" id="ApellidoYNombre" name="ApellidoYNombre" tabindex="6"/></td>
+            <td><input type="text" id="ApellidoYNombre" name="ApellidoYNombre" tabindex="9"/></td>
+        </tr>
+    </table>
+    
+    <!--Ej5-->
+    <h3>6.</h3>
+    <form>
+        <label>Grupos:</label><br>
+        <label>Niños</label>
+        <input type="radio" id="niños" name="grupoEdad" disabled/><br>
+        <label>Adolescentes</label>
+        <input type="radio" id="adolescentes" name="grupoEdad"/><br>
+        <label>Mayores</label>
+        <input type="radio" id="mayores" name="grupoEdad"/><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <!--Ej5-->
+    <h3>7.</h3>
+    <form>
+        <label for="nombre">Introduce nombre: </label>
+        <input type="text" id="nombre" name="nombre" maxlength="20"/><br>
+        <label for="nombre">Introduce contraseña: </label>
+        <input type="text" id="nombre2" name="nombre" maxlength="12"/><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <!--Ej5-->
+    <h3>8.</h3>
+    <form></form>
+        <input type="text" id="nombre" name="nombre" value="Hiberus" readonly/><br>
+        <textarea readonly>contrato hiberus</textarea>
+    </form>
+    <!--Ej5-->
+    <h3>9.</h3>
+    <h2>Reclamos</h2>
+
+	<form>
+		<label for="name">Ingrese su nombre:</label> <input type="text" id="name"><br>
+		<label for="adress">Ingrese su dirección:</label> <input type="text" id="adress"><br>
+		<label for="problem">Informe del problema</label><br>
+		<textarea id="problem"></textarea><br>
+
+		<input type="submit" value="Enviar">
+	</form>
+
+    <!--Ej5-->
+    <h3>10.</h3>
+    <form>
+		<fieldset>
+			<legend>Formulario de comentarios.</legend>
+
+			<label for="name">Ingrese su nombre:</label> <input type="text" id="name"><br>
+			<label for="mail">Ingrese su mail:</label> <input type="text" id="mail"><br>
+
+			<label for="comments">Comentarios:</label><br>
+			<textarea id="comments"></textarea><br>
+
+			<input type="submit" value="Enviar">
+		</fieldset>
+	</form>
+</body>
+</html>

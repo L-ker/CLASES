@@ -1,0 +1,44 @@
+// Define variables para los colores de los botones
+$color-primary: blue;
+$color-success: green;
+$color-danger: red;
+
+$estilos-botones: (
+    primary: (
+        background-color: $color-primary,
+        color: white
+    ),
+    success:(
+        background-color: $color-success,
+        color: white
+    ),
+    danger:(
+        background-color: $color-danger,
+        color: white
+    )
+);
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darken($color-primary, 10%);
+    }
+}
+
+@each $button, $style in $estilos-botones {
+    .#{$button} {
+        background-color: map-get($style , background-color);
+        color: map-get($style , color);
+
+        &:hover {
+            background-color: darken(map-get($style , background-color), 10%);
+        }
+    }
+}

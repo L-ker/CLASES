@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="formulario">
+        <textarea name="mitexto" placeholder="Introduce una frase" cols="30" rows="5"></textarea>
+        <br>
+        <input type="button" value="clickear" onclick="pulsar()"></input>
+    </form>
+    <div id="palabras"></div>
+    <div id="calificaciones">
+        <button onclick="notasSuspensasPares()">Notas pares suspensas</button>
+    </div>
+<script>
+    /* Para el div palabras: 
+- Calcula y muestra el numero de palabras que están escritas en el textarea
+- Muestra la ultima y la primera palabra del textarea
+*/
+function pulsar() {
+    let areaTexto = document.formulario[0].value;
+    let divEscribirPalabras = document.getElementById("palabras");
+    let arrayPalabras = areaTexto.split(" ");
+    divEscribirPalabras.innerHTML = "El numero de palabras es: " + arrayPalabras.length + ", la primera palabra es: "
+     + arrayPalabras[0] + " y la última es: " + arrayPalabras[arrayPalabras.length - 1];
+}
+
+/* Para el div calificaciones: 
+Dado el siguiente array de notas de clase en la 1ª Evaluación. 
+var notas = new Array(4.5, 4, 6, 1, 7.5, 10, 5.25, 4.5, 2, 1, 8,7.5, 1, 7.5, 8);
+- Sacar el numero de alumnos aprobados 
+- Dado este array, sacar por pantalla todas las notas que no están repetidas
+- Crea una funcion para comprobar las notas que estan por debajo de 5. Llama a esta función para sacar las notas pares de los alumnos que han suspendido
+- Sacar las notas impares de los alumnos que han sacado al menos un 7
+- Elimina del array las notas por debajo de 5
+- Crea una función aleatoria que calcule numeros entre 5 y 10 sin decimales
+- Llama a esta funcion aleatoria para rellenar el array, respetando las notas que no han sido eliminadas. 
+- Muestra por pantalla el array con los nuevos elementos ordenandos de mayor a menor.
+
+NOTA1: Emplea siempre que se pueda metodos y propiedades del objeto Array
+NOTA2: Emplea if, for, for-in, for-of, do-while, while... */
+
+var notas = new Array(4.5, 4, 6, 1, 7.5, 10, 5.25, 4.5, 2, 1, 8,7.5, 1, 7.5, 8);
+let numAlumnosAProbados = 0;
+let arrayNotasYaSacadas = [];
+let divEscribirCalificaciones = document.getElementById("calificaciones"); 
+let escribir = "<a>";
+for (let nota of notas) {
+    if (nota >= 5) numAlumnosAProbados++;
+    if (!arrayNotasYaSacadas.includes(nota)) {
+        arrayNotasYaSacadas.push(nota);
+        escribir += nota + " ";
+    }
+}
+escribir += "</a>";
+
+divEscribirCalificaciones.innerHTML = escribir;
+
+function notasSuspensasPares()  {
+
+}
+
+</script>
+</body>
+</html>

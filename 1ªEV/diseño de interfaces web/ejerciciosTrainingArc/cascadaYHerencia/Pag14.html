@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            color: gray;
+        }
+
+        p {
+            font-size: 15px;
+        }
+
+        strong {
+            font-style: italic;
+            font-size: 20px;
+        }
+
+        div {
+            border-style: solid;
+            border-width: 1px;
+            border-color: red;
+            background-color: rgba(255,0,0,0.2);
+            margin: 5px;
+            width: 300px;
+            padding: 5px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Un parrafo  con un texto muy enfatizado</p>
+
+    <div style="border-top-style: dashed;">
+        <p>aqui tenemos un parrafo p</p>
+        <div style="background-color: rgba(0,0,255,0.2);width:50%;">
+            <p>No se hereda la linea discontinua</p>
+        </div>
+    </div>
+    <br>
+    <div style="border-top-style: dashed;">
+        <p>Otro parrafo p</p>
+        <div style="border-top-style: inherit;background-color: rgba(0,0,255,0.2);width:50%;">
+            <p>Se hereda la linea discontinua</p>
+        </div>
+    </div>
+</body>
+</html>
