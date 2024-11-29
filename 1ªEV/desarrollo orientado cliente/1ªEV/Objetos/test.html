@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var movil = {Marca:"LG", Peso: 5, pantalla: "5 pulgadas", Color:"Negro"};
+        // console.log(movil)
+        // console.log(movil.Marca)
+        // console.log(movil["Marca"])
+
+        // var movil = new Object();
+        // movil.Marca="LG";
+        // movil.Peso=5;
+        // movil.Pantalla="5 pulgadas";
+        // movil.Color="Negro";
+
+        function movil(marca, peso, pantalla, color) {
+            this.Marca = marca;
+            this.Peso = peso;
+            this.Pantalla = pantalla;
+            this.Color = color;
+        }
+        var compra = new movil("LG", 5, "5 pulgadas", "Negro");
+        document.getElementById("elementoprueba").innerHTML = compra.Marca + " ---" + compra["Marca"];
+    </script>
+</body>
+</html>
