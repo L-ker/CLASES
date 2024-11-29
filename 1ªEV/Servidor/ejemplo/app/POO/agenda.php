@@ -1,10 +1,23 @@
 <?php
+var_dump($_POST);
+
 $carga = fn ($clase) => require "$clase.php";
 spl_autoload_register($carga);
 
 if(isset($_POST['submit'])) {
+    function añadirContacto(&$contactos, $contactoNuevo) {
+        foreach ($contactos as $idEnArray => $contactoExistente) {
+            if ($contactoExistente->nombre == $contactoNuevo->nombre) {
+                $contactos[$idEnArray] = $contactoNuevo;
+                return true;
+            }
+        }
+        $contactos[] = $contactoNuevo;
+        return false; 
+    }
+
     $contactos = $_POST['contactos']??[];
-    $numContactos =count($contactos)??0;
+    $numContactos =count($contactos) + 1??0;
 
     $opcion = $_POST["submit"]??null;
 
@@ -19,28 +32,10 @@ if(isset($_POST['submit'])) {
         $contactos = "Agenda sin contactos";
         $numContactos = "Sin contactos actualmente";
     }
-    function añadirContacto(&$contactos, $contactoNuevo) {
-        foreach ($contactos as $idEnArray => $contactoExistente) {
-            if ($contactoExistente->nombre == $contactoNuevo->nombre) {
-                $contactos[$idEnArray] = $contactoNuevo;
-                return true;
-            }
-        }
-        $contactos[] = $contactoNuevo;
-        return false; 
-    }
-    function añadirContacto(&$contactos, $contactoNuevo) {
-        foreach ($contactos as $idEnArray => $contactoExistente) {
-            if ($contactoExistente->nombre == $contactoNuevo->nombre) {
-                $contactos[$idEnArray] = $contactoNuevo;
-                return true;
-            }
-        }
-        $contactos[] = $contactoNuevo;
-        return false; 
-    }
 }
-$contactos = $contactos??"Agenda sin contactos";
+$contactos = $contactos??[];
+$mensaje = ($contactos == []) ? "Agenda sin contactos": cout($contactos) ;
+$desabilitado = ($mensaje == "Agenda sin contactos") ? "disabled" : "";
 $numContactos = $numContactos??"Sin contactos actualmente"
 ?>
 
@@ -64,7 +59,8 @@ $numContactos = $numContactos??"Sin contactos actualmente"
             <label>Telefono</label>
             <input type="text" name="telefono"><br>
             <input type="submit" value="añadir" name="submit">
-            <input type="submit" value="borrar" name="submit" disabled>
+            <input type="submit" value="borrar" name="submit" <?=$desabilitado?>>
+            <input type="hidden" value=<?=$contactos?> name="contactos">
         </form>
     </fieldset>
     </div>
@@ -72,7 +68,7 @@ $numContactos = $numContactos??"Sin contactos actualmente"
     <div>
         <h1>Listado de contactos</h1>
         <div>
-            <a><?php listaContactos($contactos)?></a>
+            <a><?php  ($contactos)?></a>
         </div>
     </div>
 

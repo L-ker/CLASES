@@ -13,4 +13,31 @@ foreach ($productos  as $producto => $detalle) {
     echo "<li>{$detalle['precio']}$ y quedan {$detalle['unidades']} unidades</li>";
     echo "</ul>";
 }
+
+$aleatorio = fn()=>rand(1,100);
+$datos = array_fill(0,20,rand(1,10));
+$datos = array_map($aleatorio, $datos);
+$cuadrado = fn($num) => $num*$num;
+$datos2 = array_map($cuadrado, $datos);
+
+$sumar = fn($num, $num2) => $num*$num2;
+// $sumar = fn($num, $num2) => $num+$num2;
+$total_suma = array_reduce($datos, $sumar, 1);
+
+$multiplos_5 = fn($num) => $num%5==0;
+$multiplos = array_filter($datos,$multiplos_5);
+
+var_dump($datos);
+var_dump($datos2);
+
+//sort
+$datos[30] = 85;
+$datos[40] = 85;
+var_dump($datos);
+sort($datos);
+var_dump($datos);
+
+
+$cadena = serialize($datos);
+$array = unserealize($cadena);
 ?>
