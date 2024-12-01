@@ -12,6 +12,13 @@ class Contacto{
     public function getName() {
         return $this->nombre;
     }
+    public function setTelefono($telefono) {
+        $this->telefono=$telefono;
+        return $this;
+    }
+    public function getTelefono() {
+        return $this->telefono;
+    }
     public function __destruct() {
         self::$cuentaContactos--;
     }

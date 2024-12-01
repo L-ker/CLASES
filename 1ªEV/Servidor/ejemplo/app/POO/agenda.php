@@ -1,22 +1,41 @@
 <?php
+
+function añadirContacto(&$contactos, $contactoNuevo): void {
+    foreach ($contactos as $idEnArray => $contactoExistente) {
+        if ($contactoExistente->nombre == $contactoNuevo->nombre) {
+            $contactos[$idEnArray] = $contactoNuevo;
+        }
+    }
+    $contactos[] = $contactoNuevo;
+}
+
+function hacerLista($listaContactos): void {
+    
+    if (!empty($listaContactos)) {
+        echo "<tr>";
+        echo "<th>Nombre</th>";
+        echo "<th>Numero</th>";
+        echo "</tr>";
+        foreach ($listaContactos as $contacto) {
+            echo "<tr><td>$contacto->nombre</td><td>$contacto->telefono</td></tr>";
+        }
+    } else {
+        echo "<a>No hay contactos en la agenda</a>";
+    }
+}
+
 var_dump($_POST);
 
 $carga = fn ($clase) => require "$clase.php";
 spl_autoload_register($carga);
 
 if(isset($_POST['submit'])) {
-    function añadirContacto(&$contactos, $contactoNuevo) {
-        foreach ($contactos as $idEnArray => $contactoExistente) {
-            if ($contactoExistente->nombre == $contactoNuevo->nombre) {
-                $contactos[$idEnArray] = $contactoNuevo;
-                return true;
-            }
-        }
-        $contactos[] = $contactoNuevo;
-        return false; 
-    }
+    
 
-    $contactos = $_POST['contactos']??[];
+
+
+    $contactos = $_POST['contactos']??"";
+    $contactos = ($contactos === "") ? []:unserialize($contactos);
     $numContactos =count($contactos) + 1??0;
 
     $opcion = $_POST["submit"]??null;
@@ -34,9 +53,10 @@ if(isset($_POST['submit'])) {
     }
 }
 $contactos = $contactos??[];
-$mensaje = ($contactos == []) ? "Agenda sin contactos": cout($contactos) ;
+$mensaje = ($contactos == []) ? "Agenda sin contactos": count($contactos) ;
 $desabilitado = ($mensaje == "Agenda sin contactos") ? "disabled" : "";
-$numContactos = $numContactos??"Sin contactos actualmente"
+$numContactos = $numContactos??"Sin contactos actualmente";
+$contactos = (empty($contactos)) ? "":serialize($contactos);
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +88,9 @@ $numContactos = $numContactos??"Sin contactos actualmente"
     <div>
         <h1>Listado de contactos</h1>
         <div>
-            <a><?php  ($contactos)?></a>
+            <table>
+            <?php  hacerLista($contactos)?>
+            </table>
         </div>
     </div>
 

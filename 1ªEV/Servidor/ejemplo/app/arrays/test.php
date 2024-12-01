@@ -39,5 +39,5 @@ var_dump($datos);
 
 
 $cadena = serialize($datos);
-$array = unserealize($cadena);
+$array = unserialize($cadena);
 ?>
