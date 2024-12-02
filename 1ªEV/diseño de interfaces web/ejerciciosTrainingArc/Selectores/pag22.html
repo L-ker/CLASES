@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 ~ h2 {
+            color: red;
+        }
+
+        h1 + h2 {
+            color: blue;
+        }
+
+        div h2 {
+            color:green;
+        }
+
+        div > p {
+            color:orange;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>titulo 1</h1>
+    <h2>subtitulo 1 es azul</h2>
+    <p>definido despues del titulo y es hermano</p>
+    <hr>
+    <h1>titulo 2</h1>
+    <p>parrafo cualquiera</p>
+    <h2>subtitulo 2 es rojo</h2>
+    <p>sub 2 hermano del titulo 2 pero no consesutivo</p>
+    <hr>
+    <h1>titulo 3</h1>
+    <div>
+        <h2>sub 3 es verde</h2>
+        <p>sub 3 no hermano titulo 3 parrafo naranja</p>
+        <p>naranja pq hijo etiqueta div</p>
+        <span><h2>sub 3.1 es verde</h2></span>
+        <span><p>el sub 3.1 es descendente</p></span>
+        <span><p>este parrafo no es hijo de la etiqeuta<div> y no se ve naranja</p></span>
+
+    </div>
+    <h2>sub 4 es rojo</h2>
+    <p>sub 4 hermano del 3 pero no consecutivo</p>
+</body>
+</html>
