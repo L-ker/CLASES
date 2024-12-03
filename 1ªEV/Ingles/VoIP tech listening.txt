@@ -1,0 +1,12 @@
+A)
+There are 2 main points:
+1- Worries about security and a new spam type called spit which is sending a big amount of voice messages
+2- The telephony future looks promising, internet calls will probably replace the traditional system and we'll be able to make phone calls for free
+
+B)
+    1- A protocol that transforms voice into data to send it over internet
+    2- No, the recipient doesn't need any special equipment, just a phone
+    3- Analog telephone adapter, converts analog signals into internet signal
+    4- The calls are free or at least much cheaper because they're via internet
+    5- Yes you have to
+    6- Spam over internet telephony

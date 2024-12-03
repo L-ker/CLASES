@@ -39,3 +39,12 @@
 	3- fallen out
 	4- catch on
 	5- turn down
+
+PAGE ?
+4)
+	1- up to a point
+	2- were emptied by
+	3- getting rid of
+	4- was out of order
+	5- had their house painted
+	6- took advantage of the good weather
