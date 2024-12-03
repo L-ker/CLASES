@@ -21,15 +21,24 @@ function añadirContacto($contactos, $contactoNuevo) {
     return $contactos;
 }
 
-function hacerLista($listaContactos): void {
+function eliminarContacto($contactos, $contactoBorrar) {
     /**
-     * Recibo un array serializada
-     * Si no esta vacia la desserializado
-     * creo la parte de arriba de la tabla
-     * foreach para rellenar la tabla 
-     * si el array esta vacio hago un echo de que no hay contactos
+     * Recibo el array supuestamente con un contacto a eliminar
+     * itero sobre el array en busca del contacto que coincide con el nombre del contacto a eliminar
+     * si se encuentra se elimina ese contacto
+     * sino no returneo el array sin modificar nada
      */
-    if (!empty($listaContactos)) {
+    foreach ($contactos as $idEnArray => $contactoExistente) {
+        if ($contactoExistente->getName() === $contactoBorrar->getName()) {
+            unset($contactos[$idEnArray]);
+            return $contactos;
+        }
+    }
+    return $contactos;
+}
+
+function hacerLista($listaContactos): void {
+    if (!empty($listaContactos) && is_array($listaContactos)) {
         echo "<tr>";
         echo "<th>Nombre</th>";
         echo "<th>Numero</th>";
@@ -63,21 +72,21 @@ if (isset($_POST["submit"])) {
     //si existe lo desserializo sino creo un array vacio
     $contactos = ($contactos === "") ? []:desserializar($contactos);
     //consiguiendo el count de contactos para mostrarlo en la pagina
-    $numContactos =count($contactos) + 1??0;
     //opcion seleccionada
     $opcion = $_POST["submit"]??null;
     switch ($opcion){
         case "añadir":
             //creo el contacto y llamo al metodo añadir contacto
             $nombre= $_POST['nombre'];
-            $telefono= $_POST['telefono'];
+            $telefono = $_POST['telefono'];
             $contacto = new Contacto($nombre,$telefono);
-            $contactos = añadirContacto($contactos, $contacto);
+            $contactos = ($contacto->getTelefono() == "") ? eliminarContacto($contactos, $contacto) : añadirContacto($contactos, $contacto);
             break;
         case "borrar":
-            $contactos = "Agenda sin contactos";
+            $contactos = "";
             $numContactos = "Sin contactos actualmente";
         }
+        $numContactos =count($contactos)??0;
 }
 //resolucion nulos array contactos
 $contactos = $contactos??[];
