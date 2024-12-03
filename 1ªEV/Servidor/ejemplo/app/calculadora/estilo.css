@@ -1,9 +1,9 @@
 body {
-	width: 90%;
-	max-width: 1200px;
-	margin: 0 auto;
-	font-family: Ubuntu, 'Segoe UI', Arial, sans-serif;
-	color: #212529;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Ubuntu, 'Segoe UI', Arial, sans-serif;
+    color: #212529;
 }
 
 header {
@@ -19,18 +19,18 @@ main, aside {
 
 footer {
     width: 100%;
-	font-size: 0.8em;
-	color: #666;
-	text-align: right;
-	clear: both;
+    font-size: 0.8em;
+    color: #666;
+    text-align: right;
+    clear: both;
 }
 
 fieldset {
-	padding: 3%;
+    padding: 3%;
     border-radius: 10px;
     margin: 20px auto;
     background-color: #eee;
-	border: 2px solid #0b5485;
+    border: 2px solid #0b5485;
 }
 
 input[type=submit] {
@@ -42,9 +42,9 @@ input[type=submit] {
     -webkit-border-radius: 5px;
     border-radius: 10px;
     margin: 10px;
- 
+
 }
- 
+
 legend{
     font-size: 1.1em;
     font-weight: bold;
@@ -61,7 +61,7 @@ td, th {
 
 th {
     color: white;
-    background-color: #0b5485; 
+    background-color: #0b5485;
 }
 
 td:first-child {
@@ -73,16 +73,16 @@ td:nth-child(2) {
 }
 
 /*-------------------------------------------------*/
- 
+
 .destacado {
-	color: #0b5485;
+    color: #0b5485;
     font-weight: 700;
     font-size: 1.5em;
 }
 
 .destacado span {
-	color: black;
-	font-size: 20px;
+    color: black;
+    font-size: 20px;
 }
 
 /*-------------------------------------------------*/

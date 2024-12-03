@@ -3,25 +3,23 @@ $carga = fn ($clase)=> require ("$clase.php");
 
 spl_autoload_register($carga);
 
-$operacion = "";
-$resultado = "";
+$operacion="";
+$resultado="";
 
 if (isset($_POST['submit'])){
     $operacion = htmlspecialchars($_POST["operacion"]);
     $tipo_operacion = Operacion::tipo_operacion($operacion);
-    var_dump($tipo_operacion);
     switch($tipo_operacion){
         case Operacion::REAL:
             $msj ="La operación es real";
             $operacion = new OperacionReal($operacion);
-            var_dump($operacion);
             $resultado = $operacion->operar();
 //            $rtdo = $operacion->opera();
             break;
         case Operacion::RACIONAL:
             $msj ="La operación es Racional";
             $operacion = new OperacionRacional($operacion);
-            var_dump($operacion);
+            $resultado = $operacion->operar();
 //            $rtdo = $operacion->opera();
             break;
         case Operacion::ERROR:
@@ -42,13 +40,14 @@ if (isset($_POST['submit'])){
 <head>
     <meta charset="UTF-8">
     <title>Calculadora</title>
-    <link rel="stylesheet" type="text/css" href="Style/estilo.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="estilo.css" media="screen" />
 </head>
 <body>
 <header>
     <h1>Calculadora Real / Racional</h1>
 </header>
-<h1 span style="color:red"><?="$operacion <br> $resultado "??""?></h1>
+<h1 span style="color:red"><?=$msj ?? ""?></h1>
+<h1 span style="color:red"><?="$operacion $resultado "?></h1>
 <aside>
     <fieldset id="ayuda">
         <legend>Reglas de uso de la calculadora</legend>

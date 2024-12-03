@@ -8,6 +8,8 @@ class Racional
 
     public function __construct($num = 1, $den = 1)
     {
+        $num=(int)$num;
+
         self::$cuenta_racional++;
         if (is_string($num)) {
             $datos = explode("/", $num);
@@ -18,7 +20,11 @@ class Racional
         $this->num = $num;
         $this->den = $den;
     }
-
+public function   __destruct()
+{
+    self::$cuenta_racional--;
+    // TODO: Implement __destruct() method.
+}
     public function __toString(): string
     {
      return "$this->num/$this->den";
@@ -45,14 +51,12 @@ class Racional
         return new Racional($num, $den);
     }
 
-    // public static function sumar_estatico(Racional $op1, Racional $op2):Racional{
-    //     $den = $op2->den * $op1->den;
-    //     $num = $op2->num * $op1->den+$op2->den*$op1->num;
-    //     return new Racional($num, $den);
-    // }
-    static public function sumar_estatico(Racional $op1, Racional $op2) {
+    static public function sumar_estatico(Racional $op1, Racional $op2):Racional{
         return $op1->sumar($op2);
     }
 
 }
+
+
+
 ?>

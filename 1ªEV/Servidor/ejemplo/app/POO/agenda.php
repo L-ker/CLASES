@@ -44,33 +44,18 @@ function hacerLista($listaContactos): void {
 
 function serializar($listaContactos) {
     /**
-     * Recibo un array no serializado cuyo contenido no esta serializado
-     * creo un array vacio
-     * foreach del contenido del array no serializado 
-     * cada objeto del array lo serializo y añado al array vacio
-     * returneo el array serializado con contenido serializado
+     * Recibo un array de objetos no serializado
+     * serializo el array, lo encodeo en base 64 y lo returneo
      */
-    $listaSerializada = [];
-    foreach ($listaContactos as $contactoSinSerializar) {
-        $listaSerializada[] = serialize($contactoSinSerializar);
-    }
-    return serialize($listaSerializada);
+    return base64_encode(serialize($listaContactos));
 }
 
 function desserializar($listaContactos) {
     /**
-     * Recibo una lista serializada (los objetos de dentro serializados tambien)
-     * Creo un array vacio
-     * desserializo la lista serializada
-     * cada elemento de la lista que acabo de desserializar lo desserializo y lo añado al array vacio
-     * devuelvo el array vacio
+     * Recibo un array encodeado y serializado
+     * decodeo el array, lo desserializo y lo returneo
      */
-    $listaDesserializada = [];
-    $listaContactos = unserialize($listaContactos);
-    foreach ($listaContactos as $contactoSerializado) {
-        $listaDesserializada[] = unserialize($contactoSerializado);
-    }
-    return $listaDesserializada;
+    return  unserialize(base64_decode($listaContactos));
 }
 
 if (isset($_POST["submit"])) {
@@ -117,7 +102,7 @@ $numContactos = $numContactos??"Sin contactos actualmente";
         <legend>Nuevo contacto</legend>
         
         <form action="agenda.php" method="POST">
-            <input type="hidden" value=<?=serializar($contactos)?> name="contactos">
+            <input type="hidden" value='<?=serializar($contactos)?>' name="contactos">
             <label>Nombre</label>
             <input type="text" name="nombre"><br>
             <label>Telefono</label>

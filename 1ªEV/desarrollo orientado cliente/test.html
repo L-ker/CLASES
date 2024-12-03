@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 1
+    var movil = {Marca:"LG", Peso: 5, pantalla: "5 pulgadas", Color:"Negro"};
+    //2
+    var movil = new Object();
+    movil.Marca="LG";
+    movil.Peso=5;
+    movil.Pantalla="5 pulgadas";
+    movil.Color="Negro";
+    //3
+    function movil(marca, peso, pantalla, color) {
+        this.Marca = marca;
+        this.Peso = peso;
+        this.Pantalla = pantalla;
+        this.Color = color;
+    }
+    new movil("LG", 5, "5 pulgadas", "Negro");
+
+    </script>
+</body>
+</html>
