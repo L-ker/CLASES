@@ -4,18 +4,32 @@ var_dump($_POST);
 $carga = fn ($clase) => require "$clase.php";
 spl_autoload_register($carga);
 
-function añadirContacto(&$contactos, $contactoNuevo): void {
+function añadirContacto($contactos, $contactoNuevo) {
+    /**
+     * Recibo un array desserializada y un contacto
+     * reviso el array entero para ver si el nombre de algun contacto de este coincide con el nuevo
+     * si coincide cambio el contacto para modificar el numero y returneo el array
+     * sino sigue y cuando acaba lo añade y returnea el array
+     */
     foreach ($contactos as $idEnArray => $contactoExistente) {
-        if ($contactoExistente->nombre == $contactoNuevo->nombre) {
+        if ($contactoExistente->getName() === $contactoNuevo->getName()) {
             $contactos[$idEnArray] = $contactoNuevo;
+            return $contactos;
         }
     }
     $contactos[] = $contactoNuevo;
+    return $contactos;
 }
 
 function hacerLista($listaContactos): void {
+    /**
+     * Recibo un array serializada
+     * Si no esta vacia la desserializado
+     * creo la parte de arriba de la tabla
+     * foreach para rellenar la tabla 
+     * si el array esta vacio hago un echo de que no hay contactos
+     */
     if (!empty($listaContactos)) {
-        $listaContactos = desserializar($listaContactos);
         echo "<tr>";
         echo "<th>Nombre</th>";
         echo "<th>Numero</th>";
@@ -29,51 +43,63 @@ function hacerLista($listaContactos): void {
 }
 
 function serializar($listaContactos) {
+    /**
+     * Recibo un array no serializado cuyo contenido no esta serializado
+     * creo un array vacio
+     * foreach del contenido del array no serializado 
+     * cada objeto del array lo serializo y añado al array vacio
+     * returneo el array serializado con contenido serializado
+     */
     $listaSerializada = [];
     foreach ($listaContactos as $contactoSinSerializar) {
         $listaSerializada[] = serialize($contactoSinSerializar);
     }
-    $listaContactos =  $listaSerializada;
-    return $listaContactos;
+    return serialize($listaSerializada);
 }
 
 function desserializar($listaContactos) {
+    /**
+     * Recibo una lista serializada (los objetos de dentro serializados tambien)
+     * Creo un array vacio
+     * desserializo la lista serializada
+     * cada elemento de la lista que acabo de desserializar lo desserializo y lo añado al array vacio
+     * devuelvo el array vacio
+     */
     $listaDesserializada = [];
+    $listaContactos = unserialize($listaContactos);
     foreach ($listaContactos as $contactoSerializado) {
         $listaDesserializada[] = unserialize($contactoSerializado);
     }
     return $listaDesserializada;
 }
 
-if(isset($_POST['submit'])) {
-    
+if (isset($_POST["submit"])) {
     $contactos = $_POST['contactos']??"";
+    //si existe lo desserializo sino creo un array vacio
     $contactos = ($contactos === "") ? []:desserializar($contactos);
-
+    //consiguiendo el count de contactos para mostrarlo en la pagina
     $numContactos =count($contactos) + 1??0;
-
+    //opcion seleccionada
     $opcion = $_POST["submit"]??null;
-
     switch ($opcion){
-    case "añadir":
-        $nombre= $_POST['nombre'];
-        $telefono= $_POST['telefono'];
-        $contacto = new Contacto($nombre,$telefono);
-        añadirContacto($contactos, $contacto);
-        break;
-    case "borrar":
-        $contactos = "Agenda sin contactos";
-        $numContactos = "Sin contactos actualmente";
-    }
+        case "añadir":
+            //creo el contacto y llamo al metodo añadir contacto
+            $nombre= $_POST['nombre'];
+            $telefono= $_POST['telefono'];
+            $contacto = new Contacto($nombre,$telefono);
+            $contactos = añadirContacto($contactos, $contacto);
+            break;
+        case "borrar":
+            $contactos = "Agenda sin contactos";
+            $numContactos = "Sin contactos actualmente";
+        }
 }
-//resolucion de nulos
+//resolucion nulos array contactos
 $contactos = $contactos??[];
-//desabilitar boton de borrar si no hay contactos
+//si no hay contactos el boton de borrar se deshabilita
 $desabilitado = ($contactos == []) ? "disabled" : "";
 //mensaje del numero de contactos
 $numContactos = $numContactos??"Sin contactos actualmente";
-//serializacion del array de objetos contacto
-$contactos = (empty($contactos)) ? "":serializar($contactos);
 ?>
 
 <!DOCTYPE html>
@@ -91,13 +117,13 @@ $contactos = (empty($contactos)) ? "":serializar($contactos);
         <legend>Nuevo contacto</legend>
         
         <form action="agenda.php" method="POST">
+            <input type="hidden" value=<?=serializar($contactos)?> name="contactos">
             <label>Nombre</label>
             <input type="text" name="nombre"><br>
             <label>Telefono</label>
             <input type="text" name="telefono"><br>
             <input type="submit" value="añadir" name="submit">
             <input type="submit" value="borrar" name="submit" <?=$desabilitado?>>
-            <input type="hidden" value=<?php serializar($contactos)?> name="contactos">
         </form>
     </fieldset>
     </div>
