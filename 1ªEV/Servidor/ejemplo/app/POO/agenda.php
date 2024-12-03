@@ -14,8 +14,8 @@ function añadirContacto(&$contactos, $contactoNuevo): void {
 }
 
 function hacerLista($listaContactos): void {
-    $listaContactos = unserialize($listaContactos);
     if (!empty($listaContactos)) {
+        $listaContactos = desserializar($listaContactos);
         echo "<tr>";
         echo "<th>Nombre</th>";
         echo "<th>Numero</th>";
@@ -28,18 +28,28 @@ function hacerLista($listaContactos): void {
     }
 }
 
-function serializar(&$listaContactos): void {
-    echo "sigma";
+function serializar($listaContactos) {
+    $listaSerializada = [];
+    foreach ($listaContactos as $contactoSinSerializar) {
+        $listaSerializada[] = serialize($contactoSinSerializar);
+    }
+    $listaContactos =  $listaSerializada;
+    return $listaContactos;
 }
 
-function desserializar($listaContactos):void {
-    echo "sigma";
+function desserializar($listaContactos) {
+    $listaDesserializada = [];
+    foreach ($listaContactos as $contactoSerializado) {
+        $listaDesserializada[] = unserialize($contactoSerializado);
+    }
+    return $listaDesserializada;
 }
 
 if(isset($_POST['submit'])) {
     
     $contactos = $_POST['contactos']??"";
     $contactos = ($contactos === "") ? []:desserializar($contactos);
+
     $numContactos =count($contactos) + 1??0;
 
     $opcion = $_POST["submit"]??null;
@@ -56,10 +66,13 @@ if(isset($_POST['submit'])) {
         $numContactos = "Sin contactos actualmente";
     }
 }
+//resolucion de nulos
 $contactos = $contactos??[];
-$mensaje = ($contactos == []) ? "Agenda sin contactos": count($contactos) ;
-$desabilitado = ($mensaje == "Agenda sin contactos") ? "disabled" : "";
+//desabilitar boton de borrar si no hay contactos
+$desabilitado = ($contactos == []) ? "disabled" : "";
+//mensaje del numero de contactos
 $numContactos = $numContactos??"Sin contactos actualmente";
+//serializacion del array de objetos contacto
 $contactos = (empty($contactos)) ? "":serializar($contactos);
 ?>
 
@@ -84,7 +97,7 @@ $contactos = (empty($contactos)) ? "":serializar($contactos);
             <input type="text" name="telefono"><br>
             <input type="submit" value="añadir" name="submit">
             <input type="submit" value="borrar" name="submit" <?=$desabilitado?>>
-            <input type="hidden" value=<?=$contactos?> name="contactos">
+            <input type="hidden" value=<?php serializar($contactos)?> name="contactos">
         </form>
     </fieldset>
     </div>
