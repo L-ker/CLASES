@@ -1,0 +1,43 @@
+//MAPA
+$utilities: (
+  "padding": (
+	type:0,
+	property: padding,
+	class: g--padding-,
+	values: (
+  	1: 1px,
+  	2: 5px,
+  	3: 10px,
+  	4: 20px,
+  	5: 40px,
+	)
+  ),
+  "font-size": (
+	type:1,
+	property: font-size,
+	class: g--font-size-,
+	values: (6px,7px,10px,12px,14px,16px,18px,20px)
+	),  
+  "width": (
+	type:2,
+	property: width,
+	class: g--width-,
+	max:9
+	),
+//   "$keys": ( xxxxs,xxxs,xxs,xs,s,m,l,xl,xxl,xxxl )  
+ );
+
+$mapaPadding: map-get($utilities, padding);
+$mapaValores: map-get($mapaPadding,values);
+$i:1;
+$keysMapa: map-keys($mapaValores);
+
+@each $numero, $valor in $mapaValores {
+    .g--padding-#{$numero} { padding:#{$valor}}
+}
+
+$numero: 1;
+// @each algo {
+// 	.g--width-#{$numero} {  width: $valor;}
+//	$numero: $numero + 1;
+// }

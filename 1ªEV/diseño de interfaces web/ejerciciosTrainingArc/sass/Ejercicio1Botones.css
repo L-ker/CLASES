@@ -1,3 +1,38 @@
+/*
+En vez de poner
+
+Box{
+    propiedades
+}
+
+Box.title{
+    propiedades
+}
+
+scss permite hacer
+Box {
+    propiedades
+    title {
+        propiedades(se aplican las de fuera tambien)
+    }
+}
+
+*/
+/*
+
+.button {
+  background-color: blue;
+  &:hover {
+    background-color: red;
+  }
+}
+
+*/
+/*
+    $colores: red, green, blue, yellow; // Valores separados con comas
+    $colores: red green blue yellow; // Valores separados sin comas
+    $colores: 'red' 'green' 'blue' 'yellow'; // Valores con comillas (NECESARIO CON CARACTERES ESPECIALES)
+*/
 .button {
   padding: 10px 20px;
   border: none;
