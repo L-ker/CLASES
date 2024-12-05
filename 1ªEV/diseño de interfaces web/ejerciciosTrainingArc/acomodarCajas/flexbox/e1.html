@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .objeto {
+            border:dashed;
+            width: 100px;
+            height: 100px;
+        }
+        .objeto-1{
+            background-color: red;
+            /* flex-grow: 1; */
+
+            /* Si 0 no se hace pequeño al hacer pequeña la pagina, velocidad de hacerse pequeño */
+            /* flex-shrink: 1; */
+
+            /* flex-basis: 300px; */
+
+            /* flex-grow shrink y basis cominados: flex */
+            /* flex: 1; */
+
+            /* ovrewitea el align del contenedor */
+            /* align-self: center; */
+        }
+        .objeto-2{
+            background-color: blue;
+            /* flex-grow: 1; */
+        }
+        .objeto-3{
+            background-color: green;
+            /* flex-grow: 1; */
+
+            /* default:0 */
+            /* order: -1; */
+        }
+        .contenedor {
+            height: 600px;
+            width: 600px;
+            display: flex;
+            /* colum pone en vertical cambiando los ejes*/
+            flex-direction: row;
+            /* flex-end pondria al final, center centro, space-between,space-around, space-evenly*/
+            justify-content: flex-start;
+            /* baseline aliniaria la letra */
+            align-items: flex-start;
+            /* si no esta los objetos se apretan en las filas */
+            /* flex-wrap: wrap; */
+            /* Cuando flex-wrap es wrap se puede usar align-contect */
+            /* align-content: flex-start; */
+            /* gap: 10px; */
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="objeto objeto-1">1</div>
+        <div class="objeto objeto-2">2</div>
+        <div class="objeto objeto-3">3</div>
+    </div>
+</body>
+</html>
