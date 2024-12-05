@@ -1,0 +1,77 @@
+*{
+    margin:0;
+}
+
+header{
+    background-color: red;
+    color: gold;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+    position: fixed;
+    top:0;
+    font-size: 2em;
+    color: gold;
+    z-index: 10;
+}
+.lateral{
+    position: fixed;
+    top: 0vh;
+    width: 20vw;
+    background-repeat: no-repeat;
+    background-color: gold;
+    height: 100vh;
+    background-image: url(../images/prize.png);
+    background-size: contain;
+    background-position: center;
+}
+.izquierdo{
+    left: 0;
+}
+
+.derecho{
+    right: 0;
+}
+
+#peliculas{
+    position: absolute;
+    left: 20vw;
+    right: 20vw;
+    top:15vh;
+    background-color: wheat;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.peliculas{
+    margin: 1vh;
+}
+img{
+    width: 10vw;
+    transition: width 3s;
+    
+}
+img:hover{
+    width: 15vw;
+}
+h3{
+    text-align: center;
+    background-color: gold;
+}
+
+@media (max-width:475px){
+    .lateral{
+        display: none;
+    }
+    #peliculas{
+        left:0;
+        width: 100%;
+    }
+
+}
+
+
+
+
