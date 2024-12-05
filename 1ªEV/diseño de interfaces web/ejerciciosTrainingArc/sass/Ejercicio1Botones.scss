@@ -1,7 +1,48 @@
+//NESTING
+/*
+En vez de poner
+
+Box{
+    propiedades
+}
+
+Box.title{
+    propiedades
+}
+
+scss permite hacer
+Box {
+    propiedades
+    title {
+        propiedades(se aplican las de fuera tambien)
+    }
+}
+
+*/
+//VARIABLES
 // Define variables para los colores de los botones
 $color-primary: blue;
 $color-success: green;
 $color-danger: red;
+
+//SIMBOLO &
+/*
+
+.button {
+  background-color: blue;
+  &:hover {
+    background-color: red;
+  }
+}
+
+*/
+
+//LISTAS
+/*
+    $colores: red, green, blue, yellow; // Valores separados con comas
+    $colores: red green blue yellow; // Valores separados sin comas
+    $colores: 'red' 'green' 'blue' 'yellow'; // Valores con comillas (NECESARIO CON CARACTERES ESPECIALES)
+*/
 
 $estilos-botones: (
     primary: (
