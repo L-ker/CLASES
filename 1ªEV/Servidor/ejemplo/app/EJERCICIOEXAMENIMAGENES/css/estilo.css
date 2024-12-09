@@ -1,0 +1,60 @@
+
+.error{
+    font-size: 1.2em;
+    font-weight: bold;
+    color:blue;
+}
+.contenido{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.titulo{
+    font-size: 4em;
+    color:midnightblue;
+    font-weight: bold;
+    text-align: center;
+}
+img{
+    width: 200px;
+    height: 250px;
+    text-align: center;
+
+}
+fieldset{
+    width: 80%;
+    margin: 100px;
+    padding:20px;
+    background: beige;
+}
+legend{
+    font-size :2em;
+    color:darkred;
+}
+select, label{
+    font-size:1.8em;
+    color:navy;
+    padding: 10px
+}
+input[type=submit]{
+    font-size:2em;
+    color:navy;
+    margin-left:30px;
+}
+input[type=text]{
+    font-size :1em;
+    color:navy;
+    padding:5px;
+    margin:5px
+}
+
+input.letra{
+    font-family:"Comic Sans MS" ;
+    font-size:2em;
+    color:brown;
+    border:hidden;
+    border-bottom: 5px solid;
+    size:1;
+}
