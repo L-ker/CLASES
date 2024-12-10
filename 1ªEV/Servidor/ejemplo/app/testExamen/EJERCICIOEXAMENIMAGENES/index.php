@@ -25,13 +25,29 @@ $preguntasCategoria = $preguntas[$categoria];
 
 $examen = new Examen($preguntasCategoria, $categoria, $idioma);
 
-$examen->generarFormulario();
-
-
-
-
-
 
 // $examen = new Examen($idioma, $imagenes, 2);
 // $img = $examen->dame_primera_imagen();
 // var_dump($idioma);
+
+$accion = "formulario";
+if (isset($_POST["submit"]) && $_POST["submit"] == "enviar") {
+    var_dump($_POST);
+    $accion = "evaluar";
+    var_dump($_POST["respuestas"]);
+
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php $examen->generarFormulario($accion, ); ?>
+</body>
+</html>

@@ -14,8 +14,7 @@ class Examen extends Pregunta
             $this->preguntas[] = new Pregunta($pregunta,$categoria,$idioma);
         }
 
-    }
-    
+    }    
    public function getCategoria(): string {
         return $this->categoria;
    }
@@ -28,17 +27,23 @@ class Examen extends Pregunta
     return $this->preguntas;
    }
 
-   public function generarFormulario() {
-        echo "<fieldset>";
-        echo "<legend>Examen</legend>";
-        echo "<form>";
-        foreach ($this->preguntas as $pregunta) {
-            echo '<img src="' . $pregunta->getImagen()->getUbicacion() . '" alt="' . $pregunta->getRespuesta() . '">';
-            echo "<br><label>Respuesta:</label>";
-            echo '<input type="text"><br>';
-    }
-        echo '<input type="submit" name="enviar">';
-        echo "</form>"; 
-        echo "</fieldset>";
+   public function generarFormulario($accion) {
+        if ($accion == "formulario") {
+            echo "<fieldset>";
+            echo "<legend>Examen</legend>";
+            echo '<form action="index.php" method="POST">';
+            foreach ($this->preguntas as $index => $pregunta) {
+                echo '<img src="' . $pregunta->getImagen()->getUbicacion() . '" alt="' . $pregunta->getRespuesta() . '">';
+                echo "<br><label>Respuesta:</label>";
+                echo '<input type="text" name="respuestas[' . $index. ']"><br>';
+        }
+            echo '<input type="submit" value="enviar" name="submit">';
+            echo '<input type="submit" value="reiniciar" name="submit">';
+            echo "</form>"; 
+            echo "</fieldset>";
+        } else {
+
+        }
+
     }
 }

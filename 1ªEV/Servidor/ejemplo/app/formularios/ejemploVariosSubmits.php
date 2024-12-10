@@ -1,6 +1,6 @@
 <?php
 $opcion = $_POST["submit"]??null;
-
+var_dump($_POST);
 switch ($opcion){
     case "Guardar":
         $msj = "Has presionado el boton guardar";
