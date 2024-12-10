@@ -27,4 +27,18 @@ class Examen extends Pregunta
    public function getPreguntas(): array {
     return $this->preguntas;
    }
+
+   public function generarFormulario() {
+        echo "<fieldset>";
+        echo "<legend>Examen</legend>";
+        echo "<form>";
+        foreach ($this->preguntas as $pregunta) {
+            echo '<img src="' . $pregunta->getImagen()->getUbicacion() . '" alt="' . $pregunta->getRespuesta() . '">';
+            echo "<br><label>Respuesta:</label>";
+            echo '<input type="text"><br>';
+    }
+        echo '<input type="submit" name="enviar">';
+        echo "</form>"; 
+        echo "</fieldset>";
+    }
 }

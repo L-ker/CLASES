@@ -25,7 +25,7 @@ $preguntasCategoria = $preguntas[$categoria];
 
 $examen = new Examen($preguntasCategoria, $categoria, $idioma);
 
-
+$examen->generarFormulario();
 
 
 

@@ -11,4 +11,10 @@ class Imagen
         $this->ubicacion = $ubicacion;
     }
 
+    public function getNombre () : string {
+        return $this->nombre;
+    }
+    public function getUbicacion () : string {
+        return $this->ubicacion;
+    }
 }
