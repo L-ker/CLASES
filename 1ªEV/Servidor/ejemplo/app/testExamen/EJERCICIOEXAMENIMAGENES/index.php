@@ -48,6 +48,6 @@ if (isset($_POST["submit"]) && $_POST["submit"] == "enviar") {
     <title>Document</title>
 </head>
 <body>
-    <?php $examen->generarFormulario($accion, ); ?>
+    <?php $examen->generarFormulario($accion ); ?>
 </body>
 </html>

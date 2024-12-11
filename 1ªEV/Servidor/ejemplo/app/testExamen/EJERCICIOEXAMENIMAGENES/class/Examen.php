@@ -30,7 +30,7 @@ class Examen extends Pregunta
    public function generarFormulario($accion) {
         if ($accion == "formulario") {
             echo "<fieldset>";
-            echo "<legend>Examen</legend>";
+            echo "<legend>Examen en ".$this->idioma."</legend>";
             echo '<form action="index.php" method="POST">';
             foreach ($this->preguntas as $index => $pregunta) {
                 echo '<img src="' . $pregunta->getImagen()->getUbicacion() . '" alt="' . $pregunta->getRespuesta() . '">';
