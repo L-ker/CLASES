@@ -1,2 +1,104 @@
 EjerciciosAmpliacionTema3LucasPerez ajedrez
 funciones alto nivel
+
+console.log():
+
+Descripción: Imprime un mensaje en la consola del navegador.
+Ejemplo: console.log("Hola, mundo");
+document.getElementById():
+
+Descripción: Obtiene un elemento del DOM por su ID.
+Ejemplo: let elemento = document.getElementById("miId");
+document.querySelector():
+
+Descripción: Obtiene el primer elemento del DOM que coincide con un selector CSS.
+Ejemplo: let elemento = document.querySelector(".miClase");
+document.createElement():
+
+Descripción: Crea un nuevo elemento del DOM.
+Ejemplo: let nuevoDiv = document.createElement("div");
+document.appendChild():
+
+Descripción: Añade un nodo al final de la lista de hijos de un nodo padre.
+Ejemplo: document.body.appendChild(nuevoDiv);
+addEventListener():
+
+Descripción: Añade un manejador de eventos a un elemento.
+Ejemplo: elemento.addEventListener("click", function() { alert("Clicked!"); });
+setTimeout():
+
+Descripción: Ejecuta una función después de un número específico de milisegundos.
+Ejemplo: setTimeout(function() { alert("Hola"); }, 1000);
+setInterval():
+
+Descripción: Ejecuta una función repetidamente en intervalos específicos.
+Ejemplo: setInterval(function() { console.log("Tick"); }, 1000);
+JSON.parse():
+
+Descripción: Convierte una cadena JSON en un objeto JavaScript.
+Ejemplo: let objeto = JSON.parse('{"nombre": "Juan"}');
+JSON.stringify():
+
+Descripción: Convierte un objeto JavaScript en una cadena JSON.
+Ejemplo: let cadena = JSON.stringify({ nombre: "Juan" });
+fetch():
+
+Descripción: Realiza una solicitud HTTP para obtener datos de un servidor.
+Ejemplo: fetch("https://api.example.com/data").then(response => response.json()).then(data => console.log(data));
+localStorage.setItem():
+
+Descripción: Almacena datos en el almacenamiento local del navegador.
+Ejemplo: localStorage.setItem("clave", "valor");
+localStorage.getItem():
+
+Descripción: Obtiene datos del almacenamiento local del navegador.
+Ejemplo: let valor = localStorage.getItem("clave");
+localStorage.removeItem():
+
+Descripción: Elimina un elemento del almacenamiento local del navegador.
+Ejemplo: localStorage.removeItem("clave");
+Array.prototype.map():
+
+Descripción: Crea un nuevo array con los resultados de llamar a una función proporcionada en cada elemento del array.
+Ejemplo: let dobles = [1, 2, 3].map(x => x * 2);
+Array.prototype.filter():
+
+Descripción: Crea un nuevo array con todos los elementos que pasan la prueba implementada por la función proporcionada.
+Ejemplo: let pares = [1, 2, 3, 4].filter(x => x % 2 === 0);
+Array.prototype.reduce():
+
+Descripción: Aplica una función acumuladora a cada elemento del array (de izquierda a derecha) para reducirlo a un solo valor.
+Ejemplo: let suma = [1, 2, 3, 4].reduce((a, b) => a + b, 0);
+Array.prototype.forEach():
+
+Descripción: Ejecuta una función proporcionada una vez por cada elemento del array.
+Ejemplo: [1, 2, 3].forEach(x => console.log(x));
+Math.random():
+
+Descripción: Genera un número aleatorio entre 0 (inclusive) y 1 (exclusivo).
+Ejemplo: let numeroAleatorio = Math.random();
+Date.now():
+
+Descripción: Devuelve el número de milisegundos transcurridos desde el 1 de enero de 1970 00:00:00 UTC.
+Ejemplo: let ahora = Date.now();
+
+trim()
+Descripción: El método trim() elimina los espacios en blanco al inicio y al final de una cadena de texto. No afecta los espacios en blanco en el medio de la cadena.
+Sintaxis: str.trim()
+Ejemplo:
+
+let cadena = "   Hola, mundo   ";
+let cadenaTrimmed = cadena.trim();
+console.log(cadenaTrimmed); // "Hola, mundo"
+split()
+Descripción: El método split() divide una cadena de texto en un array de subcadenas, basándose en un separador especificado. El separador puede ser una cadena o una expresión regular.
+Sintaxis: str.split(separador)
+Ejemplo:
+
+let cadena = "Hola, mundo";
+let palabras = cadena.split(", ");
+console.log(palabras); // ["Hola", "mundo"]
+
+let fecha = "2023-12-11";
+let partesFecha = fecha.split("-");
+console.log(partesFecha); // ["2023", "12", "11"]
