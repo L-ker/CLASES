@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Ocultar/Mostrar Tabla</title>
+    <style>
+        /* Estilo inicial para la tabla */
+        #miTabla {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="toggleTable()">Ocultar/Mostrar Tabla</button>
+    <table id="miTabla" border="1">
+        <tr>
+            <th>Encabezado 1</th>
+            <th>Encabezado 2</th>
+        </tr>
+        <tr>
+            <td>Dato 1</td>
+            <td>Dato 2</td>
+        </tr>
+    </table>
+
+    <script>
+        function toggleTable() {
+            var tabla = document.getElementById("miTabla");
+            if (tabla.style.display === "none") {
+                tabla.style.display = "block";
+            } else {
+                tabla.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

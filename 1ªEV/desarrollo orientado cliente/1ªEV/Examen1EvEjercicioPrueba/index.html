@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="scripts.js"></script>
+</head>
+<body onload="cargarUsuariosTabla()">
+    <form>
+        <label for="nombre">nombre: </label>
+        <input type="text" name="nombre" id="nombre"><br>
+        <label for="fechaNacimiento">fecha de nacimiento:</label>
+        <input type="text" name="fechaNacimiento" id="fechaNacimiento"><a>(formato yyyy-mm-dd)</a><br>
+        <button type="button" onclick="form1enviado()">Enviar</button>
+    </form>
+    <hr>
+    <table style="display:none" id ="tabla">
+        <tr>
+            <th>nombre</th>
+            <th>fecha</th>
+        </tr>
+        <!-- <tr>
+            <td></td>
+        </tr> -->
+    </table>
+    <form style="display:none" id="formularioEditar">
+        <hr>
+        <a>Formulario para editar, sigue las siguientes reglas:</a>
+        <ol>
+            <li>Si pones el nombre de un usuario sin fecha se borrará el usuario</li>
+            <li>Si pones un nombre existente y distinta fecha se cambiará la fecha del usuario</li>
+            <li>Poner una fecha con o sin usuario no hará nada.</li>
+            <li>El boton borrar Storage borrará todos los usuarios</li>
+        </ol>
+        <label for="nombreEditar">nombre: </label>
+        <input type="text" name="nombreEditar" id="nombreEditar"><br>
+        <label for="fechaNacimientoEditar">fecha de nacimiento:</label>
+        <input type="text" name="fechaNacimientoEditar" id="fechaNacimientoEditar"><a>(formato yyyy-mm-dd)</a><br>
+        <button type="button" onclick="editarUsuario()">Enviar</button>
+        <button type="button" onclick="borrarStorage()">Borrar Storage</button>
+    </form>
+</body>
+</html>
