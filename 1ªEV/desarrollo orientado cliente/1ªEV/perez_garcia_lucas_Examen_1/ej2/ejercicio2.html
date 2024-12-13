@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Roberto Marín" />
+    <!-- EXAMEN DICIEMBRE 2024 DWEC CPIFP LOS ENLACES -->
+    <!-- NO MODIFIQUE ESTE ARCHIVO -->
+
+    <link href="css.css" rel="stylesheet" type="text/css" />
+    <script src="ejercicio2.js"></script>
+  </head>
+  <body>
+    <h1>Completar por el usuario</h1>
+
+    <form name="fvalida" action="" method="get">
+      <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" />
+      </div>
+      <div>
+        <label for="apellidos">Apellidos</label>
+        <input type="text" name="apellidos" id="apellidos" />
+      </div>
+      <div>
+        <label for="correo">Email</label>
+        <input type="email" name="correo" id="correo" />
+      </div>
+      <div>
+        <label for="usuario">Usuario</label>
+        <input type="text" name="usuario" id="usuario" />
+      </div>
+      <div>
+        <label for="dni">Dni</label>
+        <input type="dni" name="dni" id="dni" />
+      </div>
+      <div>
+        <button id="boton1" type="button" onclick="validarPrimerFormulario()">Habilitar banco</button>
+      </div>
+
+      <div>
+        <label for="iban">IBAN:</label>
+        <input type="text" id="iban" />
+      </div>
+      <div>
+        <label for="ccc">CCC:</label>
+        <input type="text" id="ccc" />
+      </div>
+      <div>
+        <label for="pass">Contraseña:</label>
+        <input type="password" id="pass" />
+      </div>
+      <div>
+        <button value="Enviar" id="boton2" type="button" onclick="validarSegundoFormulario()" disabled>
+          Enviar
+        </button>
+      </div>
+    </form>
+  </body>
+</html>
