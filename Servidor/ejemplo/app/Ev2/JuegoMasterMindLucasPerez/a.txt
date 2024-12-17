@@ -1,0 +1,4 @@
+clave colores y eso
+platinlla metodos estaticos
+recoge jugada las jugadas
+cada jugada objeto clase jugada
