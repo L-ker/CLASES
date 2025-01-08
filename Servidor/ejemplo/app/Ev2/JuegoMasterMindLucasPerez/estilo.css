@@ -1,0 +1,113 @@
+fieldset {
+    width: 50%;
+    background-color: lightgray;
+    margin: 0 auto;
+    border:solid;
+}
+
+h2,h3 {
+    color:purple;
+}
+
+h1 {
+    color:aquamarine;
+}
+
+ol,ul {
+    color: green;
+}
+
+.contenedorGrande {
+    display:flex;
+    flex-direction:row;
+    height: 100vh;
+}
+
+.informacion{
+    display:flex;
+    flex-direction: column;
+    background: beige;
+    border: darkblue 1px solid;
+    flex:1 1 50%;
+    margin:2px;
+}
+
+.opciones{
+    display:flex;
+    flex-direction: column;
+    background: beige;
+    border: darkblue 1px solid;
+    flex:1 1 50%;
+    margin: 2px;
+
+}
+
+.Azul {
+    background-color: blue;
+    color: white;
+}
+
+.Rojo {
+    background-color: red;
+    color: white;
+}
+
+.Naranja {
+    background-color: orange;
+}
+
+.Verde {
+    background-color: green;
+    color: white;
+}
+
+.Violeta {
+    background-color: violet;
+}
+
+.Amarillo {
+    background-color: yellow;
+}
+
+.Marron {
+    background-color: brown;
+    color: white;
+}
+
+.Rosa {
+    background-color: pink;
+}
+
+span.Negro {
+    background: black;
+    border-radius: 2.5em;
+    -moz-border-radius: 2.5em;
+    -webkit-border-radius: 2.5em;
+    color: #ffffff;
+    font-weight: bold;
+    margin-right: 15px;
+    text-align: center;
+    width:  10px;
+    height:  10px;
+    font-size: 1.5em;
+}
+
+span.Blanco {
+    background: white;
+    border-radius: 2.5em;
+    -moz-border-radius: 2.5em;
+    -webkit-border-radius: 2.5em;
+    color: #000000;
+    font-weight: bold;
+    margin-right: 15px;
+    /*margin-right: 15px;*/
+    text-align: center;
+    width: 10px;
+    height:  10px;
+    font-size: 1.5em;
+}
+
+.Color_small {
+    margin: 10px;
+    padding: 10px;
+}
