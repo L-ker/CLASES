@@ -17,17 +17,19 @@ $msj = ($adivinado) ? "Felicidades adivinaste la clave en ".count($_SESSION["jug
     <link rel = "stylesheet" href="estilo.css">
 </head>
 <body>
-    <div class="cajaFinJuego">
+    <div class="containerIndex">
         <h1>RESULTADO DE TU PARTIDA</h1>
-    </div>
-    <fieldset>
-        <h3><?=$msj?></h3><br>
-        <?php echo Plantilla::mostrarClave($_SESSION["clave"]); 
-        echo "<br>";
-        Plantilla::mostrarHistoricoJugadas($_SESSION["jugadas"]);
-        ?>
-    </fieldset>
-    <div class="cajaFinJuego">
+        <div class="final">
+            <h2><?=$msj?></h2>
+            <h3>Valor de la clave:</h3>
+            <?php 
+            echo "<div class='jugada'>";
+            echo Plantilla::mostrarClave($_SESSION["clave"]); 
+            echo "</div>";
+            echo "<br>";
+            Plantilla::mostrarJugadasFin($_SESSION["jugadas"]);
+            ?>
+        </div>
         <form action="index.php">
             <input type="submit" value="Volver al Index" name="submit">
         </form>

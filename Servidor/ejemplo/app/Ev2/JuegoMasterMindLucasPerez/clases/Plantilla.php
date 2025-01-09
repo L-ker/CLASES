@@ -3,30 +3,48 @@
 class Plantilla {
     public static function mostrarClave($clave){
 
-        $msj = "<h1>Clave</h1><br>";
-
+        $msj = "";
+        
         foreach ($clave as $color) {
-            $msj .= "<span class='$color'>$color</span>";
+            $msj .= "<span class='Color $color'>$color</span>";
         }
         
         return $msj;
     }
 
-    public static function mostrarHistoricoJugadas($jugadas) {
-
+    public static function mostrarJugadasFin($jugadas) {
         for ($i = 0; $i < count($jugadas); $i++) {
             $jugada = $jugadas[$i];
             $coloresAcertados = $jugada->getColoresAcertados();
             $posicionesAcertadas = $jugada->getPosicionesAcertadas(); 
-            $coloresAcertados -= $posicionesAcertadas;
 
-            echo "<br><h3>Valor de la jugada " .$i + 1 ."</h3><br>";
+            echo "<br><h3 class='titulo'>Valor de la jugada " .$i + 1 ."</h3><br>";
+
+            $combinacion = $jugada->getCombinacion();
+
+            echo "<div class='jugada'>";
+            foreach ($combinacion as $color) {
+                echo "<span class='Color $color'> ". $color[0] ."</span>";
+            }
+            echo "</div>";
+            echo "<br>";
+        }
+    }
+    public static function mostrarHistoricoJugadas($jugadas) {
+        echo "<div class='jugada'>";
+        for ($i = 0; $i < count($jugadas); $i++) {
+            $jugada = $jugadas[$i];
+            $coloresAcertados = $jugada->getColoresAcertados();
+            $posicionesAcertadas = $jugada->getPosicionesAcertadas(); 
+
+            echo "<br><h3 class='titulo'>Valor de la jugada " .$i + 1 ."</h3><br>";
 
             for ($j = 0; $j < ($posicionesAcertadas + $coloresAcertados); $j++) {
-                if ($j > $posicionesAcertadas - 1) 
-                    echo "<span class='Negro'>$j</span>";
-                else 
-                    echo "<span class='Blanco'>$j</span>";
+                if ($posicionesAcertadas > 0) {
+                    echo "<span class='negro'>$j</span>";
+                    $posicionesAcertadas--;
+                } else 
+                    echo "<span class='blanco'>$j</span>";
             }
 
             $combinacion = $jugada->getCombinacion();
@@ -37,6 +55,7 @@ class Plantilla {
 
             echo "<br>";
         }
+        echo "</div>";
     }
 
     public static function crearSelects($respuestas = []) {

@@ -5,8 +5,9 @@ spl_autoload_register(function ($clase){
 session_start();
 
 $opcion = $_POST['submit']??null;
- 
-$msj = "<h3>Sin datos que mostrar</h3>";
+
+$msj;
+
 $msjColores = "Selecciona 4 colores para jugar";
 
 $estadoBotonClave = "Mostrar Clave";
@@ -20,6 +21,7 @@ switch ($opcion){
         break;
 
     case "Empezar a jugar":
+        $msj = "<h3>Sin datos que mostrar</h3>";
         $clave = Clave::generar_clave();
         $_SESSION["clave"] = $clave;
         break;
@@ -27,7 +29,6 @@ switch ($opcion){
     case "Jugar":
         if (isset($_POST["respuesta"]) && count($_POST["respuesta"]) == 4) {
             $jugada = new Jugada ($_POST['respuesta']);
-            $msj=$jugada->validarJugada();
 
             $clave = $_SESSION["clave"];
 
@@ -35,6 +36,7 @@ switch ($opcion){
                 $_SESSION["jugadas"] = [];
             }
             $jugadas = $_SESSION["jugadas"];
+            $jugada->validarJugada();
             $jugadas[] = $jugada;
             $_SESSION["jugadas"] = $jugadas;
 
@@ -59,7 +61,9 @@ switch ($opcion){
         break;
 
     case "Ocultar Clave":
-        $msj = "<h3>No hay jugadas actualmente</h3>";
+        if (!(isset($_SESSION["jugadas"])))
+            $msj = "<h3>No hay jugadas actualmente</h3>";
+
         $estadoBotonClave = "Mostrar Clave";
         break;
 
@@ -67,6 +71,8 @@ switch ($opcion){
         header("Location:index.php");
         exit;
 }
+$msj = $msj ?? "";
+$msj .= "<hr>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,7 +96,7 @@ switch ($opcion){
     </script>
 </head>
 <body>
-<div class="contenedorGrande">
+<div class="contenedorJugar">
     <div class="opciones">
         <h2>OPCIONES</h2>
         <fieldset>
@@ -103,13 +109,13 @@ switch ($opcion){
         <fieldset>
             <legend>Menú jugar</legend>
             <form action="jugar.php" method="POST">
-                <h3> <?=$msjColores?></h3>
-                <? Plantilla::crearSelects($_POST['respuesta'] ?? []) ?><br>
+                <div>
+                    <h3> <?=$msjColores?></h3>
+                    <? Plantilla::crearSelects($_POST['respuesta'] ?? []) ?>
+                </div>
                 <input type="submit" value="Jugar" name="submit">
             </form>
         </fieldset>
-
-
     </div>
 
     <fieldset class="informacion">
@@ -117,13 +123,21 @@ switch ($opcion){
         <fieldset>
             <legend>Sección de información</legend>
             <?php 
-            if (isset($_SESSION["jugadas"])) {
-                echo "<h3>Juagada actual: ". count($_SESSION["jugadas"]) ."</h3>";
+            if (isset($_SESSION["jugadas"]) && $estadoBotonClave == "Mostrar Clave") {
+                echo "<h3>Jugada actual: ". count($_SESSION["jugadas"]) ."</h3>";
             }
-            ?><br>
-            <?=$msj?>
+            ?>
+            <?php 
+            if ($estadoBotonClave == "Ocultar Clave") {
+                echo "<h1>Clave Actual</h1>";
+            }
+            if (isset($_SESSION["jugadas"]))
+            echo $_SESSION["jugadas"][count($_SESSION["jugadas"]) - 1]->getResultadoJugada();    
+
+                echo $msj;
+            ?>
             <?php
-            if (isset($_SESSION["jugadas"])) {
+            if (isset($_SESSION["jugadas"]) && $estadoBotonClave == "Mostrar Clave") {
                 echo "<a>Histórico de jugadas</a><br>";
                 Plantilla::mostrarHistoricoJugadas($_SESSION["jugadas"]);
             }

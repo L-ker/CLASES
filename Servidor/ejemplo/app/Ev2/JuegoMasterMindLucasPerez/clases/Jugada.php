@@ -5,6 +5,8 @@ public $combinacion;
 public $colores_acertados;
 public $posiciones_acertadas;
 
+public $resultado_jugada;
+
 public function __construct($combinacion){
     $this->combinacion = $combinacion;
 }
@@ -18,6 +20,10 @@ public function getPosicionesAcertadas() {
 }
 public function getCombinacion() {
     return $this->combinacion;
+}
+
+public function getResultadoJugada() {
+    return $this->resultado_jugada;
 }
 
 public function validarJugada() {
@@ -50,7 +56,7 @@ public function validarJugada() {
 
     $this->posiciones_acertadas = $aciertos;
 
-    return "<h3>Resultado: $this->colores_acertados colores y $this->posiciones_acertadas posiciones</h3><hr>";
+    $this->resultado_jugada = "<h3>Resultado: $this->colores_acertados colores y $this->posiciones_acertadas posiciones</h3>";
 }
 
 }
