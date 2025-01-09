@@ -29,15 +29,6 @@ switch ($opcion){
             $jugada = new Jugada ($_POST['respuesta']);
             $msj=$jugada->validarJugada();
 
-            if ($jugada->getPosicionesAcertadas() == 4) {
-                header("Location:finJuego.php");
-                exit;
-            }
-            if (isset($_SESSION["jugadas"]) && count($_SESSION["jugadas"]) == 14) {
-                header("Location:finJuego.php");
-                exit;
-            }
-
             $clave = $_SESSION["clave"];
 
             if (!(isset($_SESSION["jugadas"]))) {
@@ -46,6 +37,17 @@ switch ($opcion){
             $jugadas = $_SESSION["jugadas"];
             $jugadas[] = $jugada;
             $_SESSION["jugadas"] = $jugadas;
+
+
+            if ($jugada->getPosicionesAcertadas() == 4) {
+                header("Location:finJuego.php?adivinado=1");
+                exit;
+            }
+            if (isset($_SESSION["jugadas"]) && count($_SESSION["jugadas"]) == 14) {
+                header("Location:finJuego.php?adivinado=0");
+                exit;
+            }
+            
         } else 
             $msjColores = "Debes seleccionar 4 colores para jugar";
         break;
@@ -120,7 +122,7 @@ switch ($opcion){
             }
             ?><br>
             <?=$msj?>
-            <?php //TODO MOSTRAR HISTORICO JUGADAS CON CLASE PLANTILLA
+            <?php
             if (isset($_SESSION["jugadas"])) {
                 echo "<a>Histórico de jugadas</a><br>";
                 Plantilla::mostrarHistoricoJugadas($_SESSION["jugadas"]);

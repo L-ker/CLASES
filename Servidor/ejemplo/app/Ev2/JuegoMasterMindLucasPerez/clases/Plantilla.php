@@ -3,7 +3,7 @@
 class Plantilla {
     public static function mostrarClave($clave){
 
-        $msj = "<h1>Clave Actual</h1><br>";
+        $msj = "<h1>Clave</h1><br>";
 
         foreach ($clave as $color) {
             $msj .= "<span class='$color'>$color</span>";
