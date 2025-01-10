@@ -15,4 +15,7 @@ RUN echo "zend_extension =$(find /usr/local/lib/php/extensions -name xdebug.so)"
 RUN echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+RUN docker-php-ext-install mysqli
+RUN docker-php-ext-enable mysqli
+
 EXPOSE 80
