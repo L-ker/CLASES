@@ -1,3 +1,18 @@
+(PAG X)
+1)
+	1-
+(PAG 91)
+7)
+	1- Recognition
+	2- Double 
+	3- Close
+	4- Menus
+	5- Log
+	6- Page
+	7- Download
+	8- Upgrade
+	9- Identity
+	10- Reset
 (PAG 156)
 3)
 	1- My dad had his car serviced last week
