@@ -1,0 +1,10 @@
+{
+    "Author": "Lucas",
+    "Version": "1.01",
+    "autoload": {
+        "psr-4": {
+            "\\Modelo\\": "./modelo",
+            "\\Vista\\": "./vistas"
+        }
+    }
+}
