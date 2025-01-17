@@ -1,0 +1,453 @@
+[
+    {
+      "reserva_id": 1,
+      "nombre_cliente": "Juan Pérez",
+      "fecha_llegada": "2025-02-01",
+      "fecha_salida": "2025-02-05",
+      "habitaciones": 1,
+      "tipo_habitacion": "Individual",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 2,
+      "nombre_cliente": "Ana López",
+      "fecha_llegada": "2025-03-01",
+      "fecha_salida": "2025-03-07",
+      "habitaciones": 2,
+      "tipo_habitacion": "Doble",
+      "estado": "Pendiente"
+    },
+    {
+      "reserva_id": 3,
+      "nombre_cliente": "Carlos Gómez",
+      "fecha_llegada": "2025-04-01",
+      "fecha_salida": "2025-04-03",
+      "habitaciones": 1,
+      "tipo_habitacion": "Sencilla",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 4,
+      "nombre_cliente": "Marta Rodríguez",
+      "fecha_llegada": "2025-05-10",
+      "fecha_salida": "2025-05-12",
+      "habitaciones": 1,
+      "tipo_habitacion": "Suite",
+      "estado": "Cancelada"
+    },
+    {
+      "reserva_id": 5,
+      "nombre_cliente": "Luis Hernández",
+      "fecha_llegada": "2025-06-15",
+      "fecha_salida": "2025-06-20",
+      "habitaciones": 3,
+      "tipo_habitacion": "Triple",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 6,
+      "nombre_cliente": "Sofia Martínez",
+      "fecha_llegada": "2025-07-01",
+      "fecha_salida": "2025-07-05",
+      "habitaciones": 2,
+      "tipo_habitacion": "Doble",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 7,
+      "nombre_cliente": "Antonio García",
+      "fecha_llegada": "2025-08-10",
+      "fecha_salida": "2025-08-14",
+      "habitaciones": 1,
+      "tipo_habitacion": "Individual",
+      "estado": "Pendiente"
+    },
+    {
+      "reserva_id": 8,
+      "nombre_cliente": "Elena Sánchez",
+      "fecha_llegada": "2025-09-01",
+      "fecha_salida": "2025-09-05",
+      "habitaciones": 2,
+      "tipo_habitacion": "Doble",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 9,
+      "nombre_cliente": "Pedro Ruiz",
+      "fecha_llegada": "2025-10-03",
+      "fecha_salida": "2025-10-10",
+      "habitaciones": 4,
+      "tipo_habitacion": "Familiar",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 10,
+      "nombre_cliente": "Laura Fernández",
+      "fecha_llegada": "2025-11-15",
+      "fecha_salida": "2025-11-18",
+      "habitaciones": 2,
+      "tipo_habitacion": "Suite",
+      "estado": "Cancelada"
+    },
+    {
+      "reserva_id": 11,
+      "nombre_cliente": "Miguel Díaz",
+      "fecha_llegada": "2025-01-20",
+      "fecha_salida": "2025-01-22",
+      "habitaciones": 1,
+      "tipo_habitacion": "Sencilla",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 12,
+      "nombre_cliente": "Cristina Castro",
+      "fecha_llegada": "2025-02-10",
+      "fecha_salida": "2025-02-12",
+      "habitaciones": 1,
+      "tipo_habitacion": "Doble",
+      "estado": "Pendiente"
+    },
+    {
+      "reserva_id": 13,
+      "nombre_cliente": "Javier Pérez",
+      "fecha_llegada": "2025-03-12",
+      "fecha_salida": "2025-03-15",
+      "habitaciones": 2,
+      "tipo_habitacion": "Familiar",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 14,
+      "nombre_cliente": "Beatriz Moreno",
+      "fecha_llegada": "2025-04-05",
+      "fecha_salida": "2025-04-10",
+      "habitaciones": 1,
+      "tipo_habitacion": "Individual",
+      "estado": "Cancelada"
+    },
+    {
+      "reserva_id": 15,
+      "nombre_cliente": "Raúl Torres",
+      "fecha_llegada": "2025-05-01",
+      "fecha_salida": "2025-05-05",
+      "habitaciones": 3,
+      "tipo_habitacion": "Doble",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 16,
+      "nombre_cliente": "Olga Jiménez",
+      "fecha_llegada": "2025-06-20",
+      "fecha_salida": "2025-06-25",
+      "habitaciones": 2,
+      "tipo_habitacion": "Suite",
+      "estado": "Pendiente"
+    },
+    {
+      "reserva_id": 17,
+      "nombre_cliente": "José Luis Álvarez",
+      "fecha_llegada": "2025-07-15",
+      "fecha_salida": "2025-07-18",
+      "habitaciones": 1,
+      "tipo_habitacion": "Individual",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 18,
+      "nombre_cliente": "Sandra Gómez",
+      "fecha_llegada": "2025-08-20",
+      "fecha_salida": "2025-08-22",
+      "habitaciones": 2,
+      "tipo_habitacion": "Doble",
+      "estado": "Pendiente"
+    },
+    {
+      "reserva_id": 19,
+      "nombre_cliente": "Víctor Martín",
+      "fecha_llegada": "2025-09-01",
+      "fecha_salida": "2025-09-04",
+      "habitaciones": 1,
+      "tipo_habitacion": "Sencilla",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 20,
+      "nombre_cliente": "Verónica Ruiz",
+      "fecha_llegada": "2025-10-12",
+      "fecha_salida": "2025-10-14",
+      "habitaciones": 1,
+      "tipo_habitacion": "Individual",
+      "estado": "Cancelada"
+    },
+    {
+      "reserva_id": 21,
+      "nombre_cliente": "Pablo García",
+      "fecha_llegada": "2025-01-25",
+      "fecha_salida": "2025-01-27",
+      "habitaciones": 2,
+      "tipo_habitacion": "Suite",
+      "estado": "Pendiente"
+    },
+    {
+      "reserva_id": 22,
+      "nombre_cliente": "Alba Sánchez",
+      "fecha_llegada": "2025-02-15",
+      "fecha_salida": "2025-02-18",
+      "habitaciones": 3,
+      "tipo_habitacion": "Familiar",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 23,
+      "nombre_cliente": "Álvaro Martínez",
+      "fecha_llegada": "2025-03-20",
+      "fecha_salida": "2025-03-23",
+      "habitaciones": 1,
+      "tipo_habitacion": "Doble",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 24,
+      "nombre_cliente": "Susana Fernández",
+      "fecha_llegada": "2025-04-18",
+      "fecha_salida": "2025-04-22",
+      "habitaciones": 2,
+      "tipo_habitacion": "Sencilla",
+      "estado": "Pendiente"
+    },
+    {
+      "reserva_id": 25,
+      "nombre_cliente": "José González",
+      "fecha_llegada": "2025-05-07",
+      "fecha_salida": "2025-05-10",
+      "habitaciones": 2,
+      "tipo_habitacion": "Doble",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 26,
+      "nombre_cliente": "Lorena Ruiz",
+      "fecha_llegada": "2025-06-10",
+      "fecha_salida": "2025-06-15",
+      "habitaciones": 3,
+      "tipo_habitacion": "Triple",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 27,
+      "nombre_cliente": "Raquel Díaz",
+      "fecha_llegada": "2025-07-03",
+      "fecha_salida": "2025-07-07",
+      "habitaciones": 1,
+      "tipo_habitacion": "Individual",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 28,
+      "nombre_cliente": "Tomás Pérez",
+      "fecha_llegada": "2025-08-15",
+      "fecha_salida": "2025-08-18",
+      "habitaciones": 1,
+      "tipo_habitacion": "Sencilla",
+      "estado": "Pendiente"
+    },
+    {
+      "reserva_id": 29,
+      "nombre_cliente": "Mónica Morales",
+      "fecha_llegada": "2025-09-05",
+      "fecha_salida": "2025-09-08",
+      "habitaciones": 2,
+      "tipo_habitacion": "Doble",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 30,
+      "nombre_cliente": "Felipe García",
+      "fecha_llegada": "2025-10-10",
+      "fecha_salida": "2025-10-15",
+      "habitaciones": 1,
+      "tipo_habitacion": "Individual",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 31,
+      "nombre_cliente": "Manuel Ortega",
+      "fecha_llegada": "2025-01-30",
+      "fecha_salida": "2025-02-02",
+      "habitaciones": 1,
+      "tipo_habitacion": "Suite",
+      "estado": "Cancelada"
+    },
+    {
+      "reserva_id": 32,
+      "nombre_cliente": "Patricia González",
+      "fecha_llegada": "2025-02-25",
+      "fecha_salida": "2025-02-28",
+      "habitaciones": 2,
+      "tipo_habitacion": "Familiar",
+      "estado": "Pendiente"
+    },
+    {
+      "reserva_id": 33,
+      "nombre_cliente": "Cristian Díaz",
+      "fecha_llegada": "2025-03-30",
+      "fecha_salida": "2025-04-03",
+      "habitaciones": 1,
+      "tipo_habitacion": "Doble",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 34,
+      "nombre_cliente": "Carmen Álvarez",
+      "fecha_llegada": "2025-04-20",
+      "fecha_salida": "2025-04-25",
+      "habitaciones": 2,
+      "tipo_habitacion": "Sencilla",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 35,
+      "nombre_cliente": "Francisco González",
+      "fecha_llegada": "2025-05-01",
+      "fecha_salida": "2025-05-05",
+      "habitaciones": 2,
+      "tipo_habitacion": "Suite",
+      "estado": "Pendiente"
+    },
+    {
+      "reserva_id": 36,
+      "nombre_cliente": "Isabel Martínez",
+      "fecha_llegada": "2025-06-01",
+      "fecha_salida": "2025-06-03",
+      "habitaciones": 3,
+      "tipo_habitacion": "Familiar",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 37,
+      "nombre_cliente": "Joaquín Castro",
+      "fecha_llegada": "2025-07-10",
+      "fecha_salida": "2025-07-12",
+      "habitaciones": 2,
+      "tipo_habitacion": "Individual",
+      "estado": "Cancelada"
+    },
+    {
+      "reserva_id": 38,
+      "nombre_cliente": "Alejandro Ruiz",
+      "fecha_llegada": "2025-08-05",
+      "fecha_salida": "2025-08-09",
+      "habitaciones": 2,
+      "tipo_habitacion": "Doble",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 39,
+      "nombre_cliente": "Miriam Fernández",
+      "fecha_llegada": "2025-09-15",
+      "fecha_salida": "2025-09-20",
+      "habitaciones": 1,
+      "tipo_habitacion": "Suite",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 40,
+      "nombre_cliente": "David Sánchez",
+      "fecha_llegada": "2025-10-01",
+      "fecha_salida": "2025-10-03",
+      "habitaciones": 1,
+      "tipo_habitacion": "Sencilla",
+      "estado": "Pendiente"
+    },
+    {
+      "reserva_id": 41,
+      "nombre_cliente": "Victoria Jiménez",
+      "fecha_llegada": "2025-11-05",
+      "fecha_salida": "2025-11-07",
+      "habitaciones": 2,
+      "tipo_habitacion": "Familiar",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 42,
+      "nombre_cliente": "Ricardo López",
+      "fecha_llegada": "2025-01-25",
+      "fecha_salida": "2025-01-28",
+      "habitaciones": 1,
+      "tipo_habitacion": "Doble",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 43,
+      "nombre_cliente": "Carmen Ruiz",
+      "fecha_llegada": "2025-02-10",
+      "fecha_salida": "2025-02-15",
+      "habitaciones": 1,
+      "tipo_habitacion": "Suite",
+      "estado": "Cancelada"
+    },
+    {
+      "reserva_id": 44,
+      "nombre_cliente": "Luis García",
+      "fecha_llegada": "2025-03-01",
+      "fecha_salida": "2025-03-03",
+      "habitaciones": 2,
+      "tipo_habitacion": "Individual",
+      "estado": "Pendiente"
+    },
+    {
+      "reserva_id": 45,
+      "nombre_cliente": "Esther Fernández",
+      "fecha_llegada": "2025-04-08",
+      "fecha_salida": "2025-04-12",
+      "habitaciones": 1,
+      "tipo_habitacion": "Familiar",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 46,
+      "nombre_cliente": "Rosa Pérez",
+      "fecha_llegada": "2025-05-25",
+      "fecha_salida": "2025-05-30",
+      "habitaciones": 1,
+      "tipo_habitacion": "Sencilla",
+      "estado": "Pendiente"
+    },
+    {
+      "reserva_id": 47,
+      "nombre_cliente": "Antonio Martínez",
+      "fecha_llegada": "2025-06-18",
+      "fecha_salida": "2025-06-22",
+      "habitaciones": 2,
+      "tipo_habitacion": "Triple",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 48,
+      "nombre_cliente": "José Luis Rodríguez",
+      "fecha_llegada": "2025-07-12",
+      "fecha_salida": "2025-07-15",
+      "habitaciones": 2,
+      "tipo_habitacion": "Doble",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 49,
+      "nombre_cliente": "Teresa Castro",
+      "fecha_llegada": "2025-08-01",
+      "fecha_salida": "2025-08-05",
+      "habitaciones": 1,
+      "tipo_habitacion": "Sencilla",
+      "estado": "Confirmada"
+    },
+    {
+      "reserva_id": 50,
+      "nombre_cliente": "Manuel Sánchez",
+      "fecha_llegada": "2025-09-01",
+      "fecha_salida": "2025-09-07",
+      "habitaciones": 1,
+      "tipo_habitacion": "Suite",
+      "estado": "Pendiente"
+    }
+  ]
+  
