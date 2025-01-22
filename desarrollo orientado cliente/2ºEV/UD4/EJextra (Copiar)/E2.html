@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Libro {
+            constructor(titulo,autor,cantidadPaginas) {
+                this.titulo = titulo;
+                this.autor = autor;
+                this.cantidadPaginas = cantidadPaginas;
+            }
+
+            existePagina(numPagina) {
+                if (numPagina <= this.cantidadPaginas) {
+                    return console.log(this);
+                } else {
+                    return false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

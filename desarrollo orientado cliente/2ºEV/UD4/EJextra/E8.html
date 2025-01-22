@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const GestorCuentas = {
+            cuentas: [],
+            agregarCuenta: (nombre,saldoInicial) => {
+                const nuevaCuenta = {
+                    nombre: nombre,
+                    saldo: saldoInicial
+                };
+                GestorCuentas.cuentas.push(nuevaCuenta);
+            },
+            obtenerSaldo: nombre => {
+                const cuenta = GestorCuentas.cuentas.find(cuenta => cuenta.nombre === nombre);
+                return cuenta ? cuenta.saldo : "Cuenta no encontrada";
+            },
+            depositar: (nombre, monto) => {
+                const cuenta = GestorCuentas.cuentas.find(cuenta => cuenta.nombre === nombre);
+                if (cuenta) {
+                    if (cuenta.saldo >= monto) {
+                        cuenta.saldo -= monto;
+                        return "retiro exitoso";
+                    } else {
+                        return "saldo insuficiente"; 
+                    }
+                }else 
+                    return "cuenta no encontrada";
+            }
+        };
+    </script>
+</body>
+</html>
