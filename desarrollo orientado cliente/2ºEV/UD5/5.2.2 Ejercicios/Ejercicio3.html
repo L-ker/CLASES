@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            height: 100vh;
+        }
+        #div {
+            padding: 20px;
+            border-radius: 5px;
+            border: solid;
+        }
+    </style>
+</head>
+<body onmousemove="muestraInformacion(event, 'mouseMover')" onkeyup="muestraInformacion(event, 'teclado')" onmouseup="muestraInformacion(event, 'mouseClick')">
+    <div id="div">
+        <span id="cualUsando"></span><br>
+        <span id="escribir1"></span><br>
+        <span id="escribir2"></span>
+    </div>
+    <script type="text/javascript">
+        const cualUsando = document.getElementById("cualUsando");
+        const escribir1 = document.getElementById("escribir1");
+        const escribir2 = document.getElementById("escribir2");
+        const div = document.getElementById("div");
+
+        function muestraInformacion(event, queUsando) {
+            if (queUsando === "mouseMover") {
+                cualUsando.innerHTML = "Coordenadas mouse:";
+                escribir1.innerHTML = "Coordenadas navegador: X: " + event.clientX + ", Y: " + event.clientY;
+                escribir2.innerHTML = "Coordenadas página: X: " + event.pageX + ", Y: " + event.pageY;
+                div.style.backgroundColor = "white";
+            } else  if (queUsando === "teclado"){
+                cualUsando.innerHTML = "Tecla teclado:";
+                escribir1.innerHTML = "Tecla presionada: " +  event.key;
+                escribir2.innerHTML = "Código ASCII de la tecla: " + event.key.charCodeAt(0);
+                div.style.backgroundColor = "#CCE6FF";
+            } else {
+                cualUsando.innerHTML = "Coordenadas click:";
+                escribir1.innerHTML = "Coordenadas navegador: X: " + event.clientX + ", Y: " + event.clientY;
+                escribir2.innerHTML = "Que botón se ha presionado: " + event.which;
+                div.style.backgroundColor = "#FFFFCC";
+            }
+        }
+    </script>
+</body>
+</html>

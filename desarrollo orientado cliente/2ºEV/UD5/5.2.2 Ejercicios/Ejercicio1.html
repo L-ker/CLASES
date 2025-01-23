@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        img1 = new Image();
+        img1.src = "./imgs/ELBUHO.gif";
+        img2 = new Image();
+        img2.src = "./imgs/gatoPodrido.gif";
+
+        function Cambia(refer, nueva) {
+            document[refer].src = eval(nueva + ".src");
+        }
+    </script>
+    <a onmouseover="Cambia('enlace','img2')" onmouseout="Cambia('enlace','img1')">
+        <img src="./imgs/ELBUHO.gif" name="enlace">
+    </a>
+</body>
+</html>

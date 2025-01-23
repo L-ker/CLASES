@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a onmouseover="Cambia('img1')" onmouseout="Cambia('fuera')">
+        <img src="./imgs/ELBUHO.gif" name="enlace">
+    </a>
+
+    <a onmouseover="Cambia('img2')" onmouseout="Cambia('fuera')">
+        <img src="./imgs/gatoPodrido.gif" name="enlace">
+    </a><br>
+
+    <h1 id="textoCaracol">
+        fuera
+    </h1>
+    <script type="text/javascript">
+        // const escribir = "textoCaracol";
+        const escribir = document.getElementById("textoCaracol");
+
+        function Cambia(posMouse) {
+            let respuesta = "";
+            switch (posMouse) {
+                case "img1":
+                    respuesta = "EL BUHO"
+                    break;
+                case "img2":
+                respuesta = "GATO SIGMA"
+                    break;
+                case "fuera": 
+                respuesta = "FUERA"
+            }
+            escribir.innerHTML = respuesta;
+        }
+    </script>
+</body>
+</html>
