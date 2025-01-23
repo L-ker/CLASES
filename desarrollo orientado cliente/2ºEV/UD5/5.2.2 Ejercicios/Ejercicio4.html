@@ -6,35 +6,25 @@
     <title>Document</title>
 </head>
 <body>
-    <a onmouseover="Cambia('img1')" onmouseout="Cambia('fuera')">
-        <img src="./imgs/ELBUHO.gif" name="enlace">
-    </a>
-
-    <a onmouseover="Cambia('img2')" onmouseout="Cambia('fuera')">
-        <img src="./imgs/gatoPodrido.gif" name="enlace">
-    </a><br>
-
-    <h1 id="textoCaracol">
-        fuera
+    <h1 id="enDonde">
+        
     </h1>
     <script type="text/javascript">
-        // const escribir = "textoCaracol";
-        const escribir = document.getElementById("textoCaracol");
+        const h1Escribir = document.getElementById("enDonde");
+        document.addEventListener('mousemove', function(event) {
+            let msj = "";
+            if (event.clientY < (window.innerHeight / 2)) 
+                msj += "Arriba"
+            else 
+                msj += "Abajo"
 
-        function Cambia(posMouse) {
-            let respuesta = "";
-            switch (posMouse) {
-                case "img1":
-                    respuesta = "EL BUHO"
-                    break;
-                case "img2":
-                respuesta = "GATO SIGMA"
-                    break;
-                case "fuera": 
-                respuesta = "FUERA"
-            }
-            escribir.innerHTML = respuesta;
-        }
+            if (event.clientX > (window.innerWidth / 2))
+                msj += " derecha"
+            else 
+                msj += " izquierda"
+
+                h1Escribir.innerHTML = msj;
+        });
     </script>
 </body>
 </html>
