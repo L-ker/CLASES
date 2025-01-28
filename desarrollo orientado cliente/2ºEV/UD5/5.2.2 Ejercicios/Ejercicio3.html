@@ -26,29 +26,7 @@
         <span id="escribir2"></span>
     </div>
     <script type="text/javascript">
-        const cualUsando = document.getElementById("cualUsando");
-        const escribir1 = document.getElementById("escribir1");
-        const escribir2 = document.getElementById("escribir2");
-        const div = document.getElementById("div");
-
-        function muestraInformacion(event, queUsando) {
-            if (queUsando === "mouseMover") {
-                cualUsando.innerHTML = "Coordenadas mouse:";
-                escribir1.innerHTML = "Coordenadas navegador: X: " + event.clientX + ", Y: " + event.clientY;
-                escribir2.innerHTML = "Coordenadas página: X: " + event.pageX + ", Y: " + event.pageY;
-                div.style.backgroundColor = "white";
-            } else  if (queUsando === "teclado"){
-                cualUsando.innerHTML = "Tecla teclado:";
-                escribir1.innerHTML = "Tecla presionada: " +  event.key;
-                escribir2.innerHTML = "Código ASCII de la tecla: " + event.key.charCodeAt(0);
-                div.style.backgroundColor = "#CCE6FF";
-            } else {
-                cualUsando.innerHTML = "Coordenadas click:";
-                escribir1.innerHTML = "Coordenadas navegador: X: " + event.clientX + ", Y: " + event.clientY;
-                escribir2.innerHTML = "Que botón se ha presionado: " + event.which;
-                div.style.backgroundColor = "#FFFFCC";
-            }
-        }
+const _0x8d06c=_0x3b11;(function(_0x3af8dc,_0x2a0e69){const _0x106fbe=_0x3b11,_0x4202ba=_0x3af8dc();while(!![]){try{const _0x235e8a=parseInt(_0x106fbe(0x1aa))/0x1*(-parseInt(_0x106fbe(0x19a))/0x2)+parseInt(_0x106fbe(0x1a2))/0x3+parseInt(_0x106fbe(0x19d))/0x4*(-parseInt(_0x106fbe(0x1a7))/0x5)+parseInt(_0x106fbe(0x1a4))/0x6+-parseInt(_0x106fbe(0x1b7))/0x7*(parseInt(_0x106fbe(0x1ae))/0x8)+parseInt(_0x106fbe(0x1a5))/0x9*(parseInt(_0x106fbe(0x1a9))/0xa)+parseInt(_0x106fbe(0x1a0))/0xb*(parseInt(_0x106fbe(0x1a8))/0xc);if(_0x235e8a===_0x2a0e69)break;else _0x4202ba['push'](_0x4202ba['shift']());}catch(_0x541c07){_0x4202ba['push'](_0x4202ba['shift']());}}}(_0x2de0,0x50c53));function _0x2de0(){const _0xe3b012=['key','Coordenadas\x20página:\x20X:\x20','651OcRMCt','Coordenadas\x20navegador:\x20X:\x20','Coordenadas\x20click:','pageY','Click\x20izquierdo','Boton\x20lateral\x20del\x20raton','11386nLDoVm','innerHTML','clientY','234848PXWExe','mouseMover','clientX','11odcdYl','escribir1','1818480lmefKm','pageX','1374228UShPtp','33111HXWShN',',\x20Y:\x20','50cDGmrw','1574232qfEaYj','970Raflnr','65tWTdDZ','backgroundColor','Tecla\x20teclado:','Tecla\x20presionada:\x20','3032BWPcGI','Click\x20derecho','getElementById','white','teclado','style','escribir2'];_0x2de0=function(){return _0xe3b012;};return _0x2de0();}function _0x3b11(_0x32eb33,_0x3adf55){const _0x2de0cc=_0x2de0();return _0x3b11=function(_0x3b11cc,_0x220271){_0x3b11cc=_0x3b11cc-0x196;let _0x842569=_0x2de0cc[_0x3b11cc];return _0x842569;},_0x3b11(_0x32eb33,_0x3adf55);}const cualUsando=document['getElementById']('cualUsando'),escribir1=document[_0x8d06c(0x1b0)](_0x8d06c(0x1a1)),escribir2=document['getElementById'](_0x8d06c(0x1b4)),div=document[_0x8d06c(0x1b0)]('div');function muestraInformacion(_0x4551e7,_0x54db6a){const _0x1bc061=_0x8d06c;if(_0x54db6a===_0x1bc061(0x19e))cualUsando['innerHTML']='Coordenadas\x20mouse:',escribir1[_0x1bc061(0x19b)]=_0x1bc061(0x1b8)+_0x4551e7[_0x1bc061(0x19f)]+_0x1bc061(0x1a6)+_0x4551e7['clientY'],escribir2[_0x1bc061(0x19b)]=_0x1bc061(0x1b6)+_0x4551e7[_0x1bc061(0x1a3)]+_0x1bc061(0x1a6)+_0x4551e7[_0x1bc061(0x197)],div[_0x1bc061(0x1b3)][_0x1bc061(0x1ab)]=_0x1bc061(0x1b1);else{if(_0x54db6a===_0x1bc061(0x1b2))cualUsando[_0x1bc061(0x19b)]=_0x1bc061(0x1ac),escribir1[_0x1bc061(0x19b)]=_0x1bc061(0x1ad)+_0x4551e7[_0x1bc061(0x1b5)],escribir2[_0x1bc061(0x19b)]='Código\x20ASCII\x20de\x20la\x20tecla:\x20'+_0x4551e7[_0x1bc061(0x1b5)]['charCodeAt'](0x0),div[_0x1bc061(0x1b3)][_0x1bc061(0x1ab)]='#CCE6FF';else{let _0x2df669=_0x4551e7['which'],_0x1bc537='';switch(_0x2df669){case 0x1:_0x1bc537=_0x1bc061(0x198);break;case 0x2:_0x1bc537='Rueda\x20del\x20raton';break;case 0x3:_0x1bc537=_0x1bc061(0x1af);break;default:_0x1bc537=_0x1bc061(0x199);}cualUsando[_0x1bc061(0x19b)]=_0x1bc061(0x196),escribir1[_0x1bc061(0x19b)]=_0x1bc061(0x1b8)+_0x4551e7['clientX']+_0x1bc061(0x1a6)+_0x4551e7[_0x1bc061(0x19c)],escribir2[_0x1bc061(0x19b)]='Que\x20botón\x20se\x20ha\x20presionado:\x20'+_0x1bc537,div[_0x1bc061(0x1b3)]['backgroundColor']='#FFFFCC';}}}
     </script>
 </body>
 </html>

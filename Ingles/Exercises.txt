@@ -11,9 +11,9 @@
 	4- 
 	5- Robot fish
 	6- Loneliness
-	7- 
+	7- cooking
 	8- Teachers
-	9- Army?????
+	9- Army
 	10- That friday
 7)
 	1- Recognition
@@ -52,7 +52,19 @@
 	3-have
 	4-by
 	5-by
-
+(PAG 96)
+2)
+	1- Article
+	2- Delivery
+	3- disadvanteges
+	4- leave
+	5- technology
+3)
+	1- Article
+	2- Delivery
+	3- disadvanteges
+	4- leave
+	5- technology
 (PAG 156)
 3)
 	1- My dad had his car serviced last week
