@@ -5,6 +5,8 @@ use mysqli;
 use mysqli_sql_exception;
 use mysqli_stmt;
 
+use Dotenv\Dotenv;
+
 class DB
 {
 
@@ -106,9 +108,18 @@ class DB
       if (!$this->con) {
          return false;
       }
+      $passwordHash = password_hash($pass, PASSWORD_DEFAULT);
+      $stmt = $this->con->prepare("INSERT INTO usuarios (nombre, password) VALUES (?, ?)");
+      $stmt->bind_param("ss", $nombre, $passwordHash);
 
+      $msj = "";
 
-
+      if ($stmt->execute()) {
+         $msj = "Usuario registrado exitosamente";
+     } else {
+         $msj = "Error al registrar usuario, ya existe";
+     }
+     $stmt->close();
    }
 
    //Verifica si un usuario existe o no

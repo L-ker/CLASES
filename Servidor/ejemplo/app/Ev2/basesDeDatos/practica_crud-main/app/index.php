@@ -1,41 +1,55 @@
-<?php
+<?php session_start();
+require 'vendor/autoload.php';
+use App\Crud\DB;
+use Dotenv\Dotenv;
+
+//TODO 
+/**
+ * password_hash() en el registro
+ * Mensajes de exito o fallo
+ * 
+ */
 $opcion = $_POST['submit']??"";
+
+$db = ($opcion = "") ? "" : new DB();
 switch($opcion){
-   case "Login":
-      break;
-   case "Registrar":
-      $host = "mysql";
-      $user = "alumno";
-      $password = "alumno";
-      $database = "tienda";
+    case "Login":
+        // consulta para comprobar si existe el usuario con tema del password_hash
+        //si funciona guardar en sesion y mandar a sitio.php
 
-      try{
-         $con = new mysqli($host, $user, $password, $database);
-         var_dump($con);
-      }catch(mysqli_sql_exception $e){
-         die("Error al conectar a la base de datos".$e->getMessage());
-      }
-      $nombre = $_POST['nombre'];
-      $password = $_POST['password'];
-      $sentencia = "insert into usuarios values($nombre, $password)";
-      try {
-         $resultado=$con->query($sentencia);
-      }catch (mysqli_sql_exception $e){
-         $msj ="Error insertando ".$e->getMessage();
-      }
-      var_dump($resultado);
-      if($resultado)
-         $msj="Se ha insertado $nombre usuario";
-      else
-         $msj="Error insertando";
+        // $nombre = trim($_POST['nombre'] ?? "");
+        // $password = trim($_POST['password'] ?? "");
 
-      $con->close();
+        // if (empty($nombre) || empty($password)) {
+        //     $msj = "Usuario o contraseña vacíos";
+        //     break;
+        // }
 
+        // $stmt = $con->prepare("SELECT password FROM usuarios WHERE nombre = ?");
+        // $stmt->bind_param("s", $nombre);
+        // $stmt->execute();
+        // $stmt->bind_result($hash);
+        // $stmt->fetch();
+        // $stmt->close();
 
+        // if ($hash && password_verify($password, $hash)) {
+        //     $_SESSION['usuario'] = $nombre;
+        //     header("Location: sitio.php");
+        //     exit();
+        // } else {
+        //     $msj = "Usuario o contraseña incorrectos";
+        // }
+        // break;
 
+        break;
+    case "Registrar":
+        $nombre = $_POST['nombre'];
+        $password = $_POST['password'];
 
-      break;
+        $resultado = $db->registrar_usuario($nombre,$password);
 
+        $resultado = ($resultado = false) ? "La conexión con la base de datos ha fallado": $resultado;
+        break;
 }
 
 ?>
@@ -50,14 +64,17 @@ switch($opcion){
 </head>
 <body>
 
-<form action="login" method="post" >
-
-   usuario <input type="text" name="nombre" id=""><br />
-   password <input type="text" name="password" id=""><br />
-   <input type="submit" value="Login" name="submit">
-   <input type="submit" value="Registrar" name="submit">
-
+<form action="index.php" method="post" >
+    usuario <input type="text" name="nombre" id=""><br />
+    password <input type="text" name="password" id=""><br />
+    <input type="submit" value="Login" name="submit">
+    <input type="submit" value="Registrar" name="submit">
 </form>
+
+<?php 
+    if (isset($resultado))
+        echo "<h2>$resultado</h2>";
+?>
 
 </body>
 </html>
