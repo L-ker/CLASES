@@ -3,15 +3,25 @@ require 'vendor/autoload.php';
 use App\Crud\DB;
 use Dotenv\Dotenv;
 
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 //TODO 
 /**
- * password_hash() en el registro
- * Mensajes de exito o fallo
+ * Login:
+ * Acabarlo
+ * Falta mensaje no exitoso
+ * Comprobar si campos vacios
  * 
+ * Register:
+ * Comprobar si campos vacios
+ * No permitir registrarse con mismo usuario
+ * 
+ * Extra:
+ * Revisar metodos de la clase DB para ver que me puede faltargit 
  */
 $opcion = $_POST['submit']??"";
-
-$db = ($opcion = "") ? "" : new DB();
+$db = ($opcion === "") ? "" : new DB();
 switch($opcion){
     case "Login":
         // consulta para comprobar si existe el usuario con tema del password_hash
@@ -19,27 +29,15 @@ switch($opcion){
 
         // $nombre = trim($_POST['nombre'] ?? "");
         // $password = trim($_POST['password'] ?? "");
+        $nombre = $_POST["nombre"];
+        $password = $_POST["password"];
 
-        // if (empty($nombre) || empty($password)) {
-        //     $msj = "Usuario o contraseña vacíos";
-        //     break;
-        // }
+        $resultado = $db->validar_usuario($nombre, $password);
 
-        // $stmt = $con->prepare("SELECT password FROM usuarios WHERE nombre = ?");
-        // $stmt->bind_param("s", $nombre);
-        // $stmt->execute();
-        // $stmt->bind_result($hash);
-        // $stmt->fetch();
-        // $stmt->close();
-
-        // if ($hash && password_verify($password, $hash)) {
-        //     $_SESSION['usuario'] = $nombre;
-        //     header("Location: sitio.php");
-        //     exit();
-        // } else {
-        //     $msj = "Usuario o contraseña incorrectos";
-        // }
-        // break;
+        if ($resultado) {
+            header("Location: sitio.php");
+             exit();
+        }
 
         break;
     case "Registrar":
@@ -48,7 +46,7 @@ switch($opcion){
 
         $resultado = $db->registrar_usuario($nombre,$password);
 
-        $resultado = ($resultado = false) ? "La conexión con la base de datos ha fallado": $resultado;
+        $resultado = ($resultado = true) ? "El registro se ha realizado correctamente": $resultado;
         break;
 }
 

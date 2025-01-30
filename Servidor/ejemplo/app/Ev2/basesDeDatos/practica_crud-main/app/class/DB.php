@@ -19,11 +19,13 @@ class DB
       $pass=$_ENV['PASSWORD'];
       $db=$_ENV['DATABASE'];
       try {
-         $this->con=new mysqli($host, $user, $pass, $db);
-
-      } catch (mysqli_sql_exception $e) {
-         die ("Error accediendo a la base de datos " . $e->getMessage());
-      }
+         $this->con = new mysqli($host, $user, $pass, $db);
+         if ($this->con->connect_error) {
+             die("Error de conexión: " . $this->con->connect_error);
+         }
+     } catch (mysqli_sql_exception $e) {
+         die("Error accediendo a la base de datos: " . $e->getMessage());
+     }
    }
 
 
@@ -41,6 +43,21 @@ class DB
          return false;
       }
 
+      $stmt = $this->con->prepare("SELECT password FROM usuarios WHERE nombre = ?");
+      $stmt->bind_param("s", $nombre);
+      $stmt->execute();
+      $stmt->bind_result($resultado);
+      $stmt->fetch();
+      $stmt->close();
+
+
+      if ($resultado && password_verify($pass, $resultado)) {
+             $_SESSION['usuario'] = $nombre;
+             return true;
+         } else {
+             $msj = "Usuario o contraseña incorrectos";
+         }
+      return false;
    }
 /*
  * Este método tendría que investigar en el diccionario de datos
@@ -106,7 +123,7 @@ class DB
    public function registrar_usuario($nombre, $pass): bool|string
    {
       if (!$this->con) {
-         return false;
+         return "Error a la hora de establecer la conexion";
       }
       $passwordHash = password_hash($pass, PASSWORD_DEFAULT);
       $stmt = $this->con->prepare("INSERT INTO usuarios (nombre, password) VALUES (?, ?)");
@@ -117,9 +134,10 @@ class DB
       if ($stmt->execute()) {
          $msj = "Usuario registrado exitosamente";
      } else {
-         $msj = "Error al registrar usuario, ya existe";
+         return $msj = "Error al registrar usuario, ya existe";
      }
      $stmt->close();
+     return true;
    }
 
    //Verifica si un usuario existe o no
