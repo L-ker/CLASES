@@ -1,0 +1,5 @@
+Reported speech:
+    direct
+        Qs word+aux+vb+sj+vb
+    Reported
+        QS word + sj + vb
