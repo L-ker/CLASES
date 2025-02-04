@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Tarjeta de Crédito</title>
+</head>
+<body>
+    <form id="formulario">
+        <input type="text" maxlength="4" pattern="\d{4}" required>
+        <input type="text" maxlength="4" pattern="\d{4}" required>
+        <input type="text" maxlength="4" pattern="\d{4}" required>
+        <input type="text" maxlength="4" pattern="\d{4}" required>
+    </form>
+
+
+    <script>
+        document.querySelectorAll("#formulario input").forEach((input, index, inputs) => {
+        input.addEventListener('input', (event)  => {
+                let valorInput = event.target.value;
+                if (valorInput < '0' || valorInput > '9') {
+                    event.target.value = valorInput.slice(0, -1);
+                    return;
+                }
+                if (valorInput.length === event.target.maxLength) {
+                    let siguiente = inputs[index + 1];
+                    if (siguiente) {
+                        siguiente.focus();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

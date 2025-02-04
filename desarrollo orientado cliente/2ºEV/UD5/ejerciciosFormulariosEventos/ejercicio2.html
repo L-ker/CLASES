@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Tarjeta de Crédito</title>
+</head>
+<body>
+    <form id="formulario">
+        <input type="text" maxlength="4" pattern="\d{4}" required>
+        <input type="text" maxlength="4" pattern="\d{4}" required>
+        <input type="text" maxlength="4" pattern="\d{4}" required>
+        <input type="text" maxlength="4" pattern="\d{4}" required>
+        <br>
+        <label for="fechaExpiracion">Fecha de Caducidad (MM/YY):</label>
+        <input type="text" id="fechaExpiracion" name="fechaExpiracion" placeholder="MM/YY" required>
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p id="mensaje"></p>
+
+    <script>
+        document.querySelectorAll("#formulario input").forEach((input, index, inputs) => {
+        input.addEventListener('input', (event)  => {
+                let valorInput = event.target.value;
+                if (valorInput < '0' || valorInput > '9') {
+                    event.target.value = valorInput.slice(0, -1);
+                    return;
+                }
+                if (valorInput.length === event.target.maxLength) {
+                    let siguiente = inputs[index + 1];
+                    if (siguiente) {
+                        siguiente.focus();
+                    }
+                }
+            });
+        });
+
+        document.getElementById("formulario").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let inputFechaExperacion = document.getElementById("fechaExpiracion").value;
+            let mensaje = document.getElementById("mensaje");
+
+            let [mes, año] = inputFechaExperacion.split("/").map(num => parseInt(num));
+            let fechaActual = new Date();
+            let añoActual = fechaActual.getFullYear() % 100;
+            let mesActual = fechaActual.getMonth() + 1;
+
+            let mesInt = parseInt(mes);
+            let añoInt = parseInt(año);
+
+
+            if (isNaN(mes) || isNaN(año) || mesInt < 1 || mesInt > 12) {
+                mensaje.textContent = "Fecha de caducidad no válida.";
+                return;
+            }
+
+            if (añoInt < añoActual || (añoInt === añoActual && mesInt < mesActual)) {
+                mensaje.textContent = "La tarjeta está caducada.";
+            } else {
+                mensaje.textContent = "Tarjeta validada.";
+            }
+
+        });
+    </script>
+</body>
+</html>
+
