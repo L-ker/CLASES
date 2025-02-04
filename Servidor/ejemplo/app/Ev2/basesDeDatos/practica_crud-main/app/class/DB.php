@@ -80,11 +80,24 @@ class DB
    }
 
    // Retorna un array con las filas de una tabla
-   public function get_filas(string $sentencia):array
+   public function get_filas(string $nombreTabla):array
    {
       $filas=[];
       if (!$this->con) {
-         return false;
+         return $filas;
+      }
+
+      try {
+         $stmt = "SELECT * FROM $nombreTabla";
+         $resultado = $this->con->query($stmt);
+         if ($resultado) {
+             while ($fila = $resultado->fetch_assoc()) {
+                 $filas[] = $fila;
+             }
+             $resultado->free();
+         }
+      } catch (mysqli_sql_exception  $e) {
+         error_log("Error en get_filas: " . $e->getMessage());
       }
 
       return $filas;

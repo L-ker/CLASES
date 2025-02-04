@@ -1,7 +1,20 @@
 <?php session_start();
     if (!isset($_SESSION["usuario"])) {
-        header("index.php");
-        exit;
+        header("Location: index.php");
+        exit();
+    }
+    if (isset($_POST["submit"])) {
+        $opcion = $_POST["submit"];
+        switch ($opcion) {
+            case "Logout":
+                unset($_SESSION['usuario']);
+                // session_destroy();
+                header("Location: index.php");
+                exit();
+            default:
+                header("Location: listado.php?tabla=$opcion");
+                exit();
+        }
     }
 
 ?>
@@ -21,7 +34,7 @@
 <div>
     <form action="sitio.php" method="post">
         <div >
-            Conectado como XXXX  <input class="btn btn - logout" type="submit" value="Logout" name="submit">
+            Conectado como <?=$_SESSION["usuario"]?>  <input class="btn btn - logout" type="submit" value="Logout" name="submit">
         </div>
         <hr/>
         <input class="btn btn - create" type="submit" value="Productos" name="submit">
