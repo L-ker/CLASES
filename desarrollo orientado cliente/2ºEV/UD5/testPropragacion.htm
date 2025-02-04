@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #elemento1 {
+            height: 200px;
+            width: 300px;
+            background-color: aqua;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+        #elemento2 {
+            height: 100px;
+            width: 150px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="elemento1">
+        <div id="elemento2">
+
+        </div>
+    </div>
+    <script>
+        document.getElementById("elemento1").addEventListener("click",
+            function () {
+                alert("Click caja exterior captura")
+            },
+            true
+        )//true indica que es fase de captura
+        document.getElementById("elemento2").addEventListener("click",
+            function () {
+                alert("Click caja interior captura")
+            },
+            true
+        )//true indica que es fase de captura
+        document.getElementById("elemento1").addEventListener("click",
+            function () {
+                alert("Click caja exterior propagacion")
+            },
+            false
+        )//true indica que es fase de propagacion
+        document.getElementById("elemento2").addEventListener("click",
+            function () {
+                alert("Click caja interior propagacion")
+            },
+            false
+        )//true indica que es fase de propagacion
+        
+    </script>
+</body>
+</html>
