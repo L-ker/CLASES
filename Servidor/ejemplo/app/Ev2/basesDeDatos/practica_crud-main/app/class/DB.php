@@ -38,7 +38,6 @@ class DB
     */
    public function validar_usuario(string $nombre, string  $pass):bool
    {
-      // Verificar la conexión antes de ejecutar
       if (!$this->con) {
          return false;
       }
@@ -49,7 +48,6 @@ class DB
       $stmt->bind_result($resultado);
       $stmt->fetch();
       $stmt->close();
-
 
       if ($resultado && password_verify($pass, $resultado)) {
              $_SESSION['usuario'] = $nombre;
@@ -138,26 +136,37 @@ class DB
       if (!$this->con) {
          return "Error a la hora de establecer la conexion";
       }
-      $passwordHash = password_hash($pass, PASSWORD_DEFAULT);
-      $stmt = $this->con->prepare("INSERT INTO usuarios (nombre, password) VALUES (?, ?)");
-      $stmt->bind_param("ss", $nombre, $passwordHash);
-
-      $msj = "";
-
-      if ($stmt->execute()) {
-         $msj = "Usuario registrado exitosamente";
-     } else {
-         return $msj = "Error al registrar usuario, ya existe";
-     }
-     $stmt->close();
-     return true;
+      if (!$this->existe_usuario($nombre)) {
+         $passwordHash = password_hash($pass, PASSWORD_DEFAULT);
+         $stmt = $this->con->prepare("INSERT INTO usuarios (nombre, password) VALUES (?, ?)");
+         $stmt->bind_param("ss", $nombre, $passwordHash);
+         $stmt->execute();
+         $stmt->close();
+         return true;
+      } 
+      return "Ya existe el usuario";
    }
 
    //Verifica si un usuario existe o no
    private function existe_usuario(string $nombre):bool
    {
-
+      if (!$this->con) {
+         return false;
+      }
+      $stmt = $this->con->prepare("SELECT nombre FROM usuarios WHERE nombre = ?");
+      $stmt->bind_param("s", $nombre);
+      $stmt->execute();
+      $stmt->bind_result($resultado);
+      $stmt->fetch();
+      $stmt->close();
+   
+   
+      if ($resultado) {
+         return true;
+      }
+      return false;
    }
+   
 
    //Ejecuta una sentencia y retorna un mysql_stmt
    //La sentencia hay que paraemtrizarla
