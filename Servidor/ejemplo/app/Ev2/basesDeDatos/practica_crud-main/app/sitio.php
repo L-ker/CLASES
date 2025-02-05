@@ -12,7 +12,8 @@
                 header("Location: index.php");
                 exit();
             default:
-                header("Location: listado.php?tabla=$opcion");
+                $_SESSION["tabla"] = $opcion;
+                header("Location: listado.php?");
                 exit();
         }
     }
@@ -37,8 +38,8 @@
             Conectado como <?=$_SESSION["usuario"]?>  <input class="btn btn - logout" type="submit" value="Logout" name="submit">
         </div>
         <hr/>
-        <input class="btn btn - create" type="submit" value="Productos" name="submit">
-        <input class="btn btn - edit" type="submit" value="Tiendas" name="submit">
+        <input class="btn btn - create" type="submit" value="Producto" name="submit">
+        <input class="btn btn - edit" type="submit" value="Tienda" name="submit">
         <input class="btn btn - delete" type="submit" value="Usuarios" name="submit">
         <input class="btn btn - create" type="submit" value="Stock" name="submit">
 

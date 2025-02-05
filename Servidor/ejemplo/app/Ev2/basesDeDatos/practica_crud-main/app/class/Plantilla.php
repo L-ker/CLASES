@@ -5,7 +5,7 @@ namespace App\Crud;
 class Plantilla
 {
    const EDIT=<<<FIN
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-700">
+<svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-700">
   <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
 </svg>
 
@@ -101,6 +101,50 @@ FIN;
       $html_logout="";
       return $html_logout;
 
+   }
+
+   public static function crear_tabla($columnas, $filas): void {
+
+   //    foreach ($array as $clave => $valor) {
+   //       // Código a ejecutar
+   //   }
+
+      echo "<table>";
+      
+      echo "<thead>";
+      foreach ($columnas as $columna) {
+         echo "<th>$columna</th>";
+      }
+      echo "<th></th><th></th>";
+      echo "</thead>";
+
+      echo "<tbody>";
+      foreach ($filas as $fila) {
+         echo "<tr>";
+         $codigo = $fila[$columnas[0]];
+
+         foreach ($fila as $valor) {
+            echo "<td>$valor</td>";
+         }
+         echo "<td>
+         <form action='listado.php' method='POST'>
+         <input type='hidden' name='codigo' value='$codigo'>
+         <button type='submit' name='accion' value='editar'>".self::EDIT."</button>
+         </form>
+         </td>";
+
+         echo "<td>
+         <form action='listado.php' method='POST'>
+         <input type='hidden' name='codigo' value='$codigo'>
+         <button type='submit' name='accion' value='borrar'>".self::BORRAR."</button>
+         </form>
+         </td>";
+
+         echo "</tr>";
+      }
+      echo "</tbody>";
+
+      echo "</table>";
    }
 }
 
