@@ -162,12 +162,12 @@ class DB
       $stmt = $this->con->prepare("SELECT nombre FROM usuarios WHERE nombre = ?");
       $stmt->bind_param("s", $nombre);
       $stmt->execute();
-      $stmt->bind_result($resultado);
+      $stmt->bind_result($stmt);
       $stmt->fetch();
       $stmt->close();
    
    
-      if ($resultado) {
+      if ($stmt) {
          return true;
       }
       return false;

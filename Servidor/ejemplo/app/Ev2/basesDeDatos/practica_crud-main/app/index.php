@@ -16,7 +16,13 @@ $dotenv->load();
  * primarias se haga un bucle que las coloque y he de hacer que se pasen por arrays por si se
  * selecciona un elemento de la tabla stock que tiene 2 tablas primarias 
  * 
- * Cambiar header a plantilla para ponerlo en index
+ * Hacer la pagina de añadir entera
+ * 
+ * revisar tema de mensajes, sesiones y campos ocultos PDF
+ * 
+ * Cambiar header a plantilla para ponerlo en todas partes
+ * 
+ * 
  */
 $opcion = $_POST['submit']??"";
 $db = ($opcion === "") ? "" : new DB();
