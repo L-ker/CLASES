@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Alumnos</title>
+</head>
+<body>
+  <h1>Alumnos</h1>
+
+  <form action="#" method="post" id="formulario">
+    <!-- Nombre -->
+    <label for="nombre">Introduce tu nombre:</label>
+    <input type="text" id="nombre" name="nombre">
+    <br><br>
+
+    <!-- Mensaje -->
+    <label for="mensaje">Mensaje:</label><br>
+    <textarea id="mensaje" name="mensaje" rows="4" cols="50"></textarea>
+    <br><br>
+
+    <!-- Búsqueda sobre el centro -->
+    <input type="submit" id="busquedaSobreCentro" value="Busqueda sobre el centro">
+    <br><br>
+
+    <!-- Selección de color (radio buttons) -->
+    <p>Selecciona el color de tu icono:</p>
+    <input type="radio" id="rojo" name="color" value="rojo">
+    <label for="rojo">Rojo</label>
+
+    <input type="radio" id="verde" name="color" value="verde">
+    <label for="verde">Verde</label>
+
+    <input type="radio" id="azul" name="color" value="azul">
+    <label for="azul">Azul</label>
+    <br><br>
+
+    <!-- Selección de materia (select con optgroups) -->
+    <label for="materia">Escoja una materia:</label>
+    <select id="materia" name="materia">
+      <optgroup label="Obligatorias">
+        <option value="matematicas">Matemáticas</option>
+        <option value="lenguaje">Lenguaje</option>
+      </optgroup>
+      <optgroup label="Optativas">
+        <option value="corte_confeccion">Corte y confección</option>
+        <option value="astronomia">Astronomía</option>
+      </optgroup>
+    </select>
+    <br><br>
+
+    <!-- Selección de días (checkboxes) -->
+    <p>Selecciona los días:</p>
+    <input type="checkbox" id="lunes" name="dias[]" value="lunes">
+    <label for="lunes">Lunes</label>
+
+    <input type="checkbox" id="martes" name="dias[]" value="martes">
+    <label for="martes">Martes</label>
+
+    <input type="checkbox" id="miercoles" name="dias[]" value="miercoles">
+    <label for="miercoles">Miércoles</label>
+
+    <input type="checkbox" id="jueves" name="dias[]" value="jueves">
+    <label for="jueves">Jueves</label>
+
+    <input type="checkbox" id="viernes" name="dias[]" value="viernes">
+    <label for="viernes">Viernes</label>
+    <br><br>
+
+    <!-- Selección de día preferente (select) -->
+    <label for="dia_preferente">Selecciona un día preferente:</label>
+    <select id="dia_preferente" name="dia_preferente">
+      <option value="">Seleccionar un día</option>
+      <option value="lunes">Lunes</option>
+      <option value="martes">Martes</option>
+      <option value="miercoles">Miércoles</option>
+      <option value="jueves">Jueves</option>
+      <option value="viernes">Viernes</option>
+    </select>
+    <br><br>
+
+    <!-- Botones de envío, reseteo y otro botón -->
+    <button type="submit">Haz clic para enviar la información</button>
+    <button type="reset">Comenzar a rellenar de nuevo</button>
+  </form>
+<script src="main.js"></script>
+</body>
+</html>
