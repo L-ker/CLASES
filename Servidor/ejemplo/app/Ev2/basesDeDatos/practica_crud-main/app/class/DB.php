@@ -28,7 +28,7 @@ class DB
      }
    }
 
-
+   //NOTA: las relaciones foraneas han sido cambiadas a on delete cascade
 
    /**
     * @param string $nombre
@@ -109,6 +109,12 @@ class DB
          return "Error en la conexión";
       }
 
+      $stmt = "DELETE FROM $table WHERE cod = ?";
+      $stmt = $this->con->prepare($stmt);
+      $stmt->bind_param("i", $cod);
+      $stmt->execute();
+      return ($stmt->affected_rows > 0) ? "Fila eliminada correctamente" : "No se encontró la fila";
+   
    }
 
    public function close()

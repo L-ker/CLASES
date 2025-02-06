@@ -14,24 +14,12 @@
     $db = new DB();
     $tabla = strtolower($_SESSION["tabla"]);
     $filas = $db->get_filas($tabla);
-
     $nombresColumnas = array_keys($filas[0]);
 
     var_dump($_POST);
     var_dump($_SESSION);
 
-    if (isset($_POST["accion"])) {
-        $accion = $_POST["accion"];
-        switch ($accion) {
-            case "borrar":
-                break;
-            case "editar":
-                break;
-            case "añadir":
-                break;
-        }
-    }
-
+    $accion = $_POST["accion"] ?? "tabla";
 ?>
 <!doctype html>
 <html lang="en">
@@ -45,7 +33,17 @@
 <body>
 <h1>Listado del contenido de tablas</h1>
 <?php
+
+switch ($accion) {
+    case "editar":
+        break;
+    case "añadir":
+        break;
+    case "borrar":
+
+    default:
     Plantilla::crear_tabla($nombresColumnas, $filas);
+}
 ?>
 </body>
 </html>

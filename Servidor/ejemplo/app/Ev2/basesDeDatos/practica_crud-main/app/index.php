@@ -6,13 +6,17 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-//TODO 
+//TODO
 /**
- * Login:
- * Acabarlo?
- *  
- * Extra:
- * Revisar metodos de la clase DB para ver que me puede faltar 
+ * cascada si no esta: https://www.youtube.com/watch?v=-ePYcp9eBbQ
+ * 
+ * hacer ajustes para primary keys, en random.txt hay ejemplos utles
+ * Basicamente necesito hacer que en los metodos relacionados con borrar y editar 
+ * (tanto en la plantilla cuando genero la tabla como en los metodos de DB) donde se colocan las claves
+ * primarias se haga un bucle que las coloque y he de hacer que se pasen por arrays por si se
+ * selecciona un elemento de la tabla stock que tiene 2 tablas primarias 
+ * 
+ * Cambiar header a plantilla para ponerlo en index
  */
 $opcion = $_POST['submit']??"";
 $db = ($opcion === "") ? "" : new DB();
