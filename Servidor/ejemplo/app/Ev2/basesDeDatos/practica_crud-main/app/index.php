@@ -9,47 +9,39 @@ $dotenv->load();
 //TODO 
 /**
  * Login:
- * Acabarlo
- * Falta mensaje no exitoso
- * Comprobar si campos vacios
- * 
- * Register:
- * Comprobar si campos vacios
- * No permitir registrarse con mismo usuario
- * 
+ * Acabarlo?
+ *  
  * Extra:
- * Revisar metodos de la clase DB para ver que me puede faltargit 
+ * Revisar metodos de la clase DB para ver que me puede faltar 
  */
 $opcion = $_POST['submit']??"";
 $db = ($opcion === "") ? "" : new DB();
-switch($opcion){
-    case "Login":
-        // consulta para comprobar si existe el usuario con tema del password_hash
-        //si funciona guardar en sesion y mandar a sitio.php
 
-        // $nombre = trim($_POST['nombre'] ?? "");
-        // $password = trim($_POST['password'] ?? "");
-        $nombre = $_POST["nombre"];
-        $password = $_POST["password"];
+$nombre = (isset($_POST["nombre"])) ? $_POST["nombre"] : "";
+$password = (isset($_POST["password"])) ? $_POST["password"] : "";
+if (!($nombre === "" || $password === "")) {
+    switch($opcion){
+        case "Login":
+            $resultado = $db->validar_usuario($nombre, $password);
+            if ($resultado) {
+                header("Location: sitio.php");
+                exit();
+            } else {
+                $resultado = "Datos de inicio de sesión incorrectos";
+            }
 
-        $resultado = $db->validar_usuario($nombre, $password);
+            break;
+        case "Registrar":
+            
 
-        if ($resultado) {
-            header("Location: sitio.php");
-             exit();
-        }
+            $resultado = $db->registrar_usuario($nombre,$password);
 
-        break;
-    case "Registrar":
-        $nombre = $_POST['nombre'];
-        $password = $_POST['password'];
-
-        $resultado = $db->registrar_usuario($nombre,$password);
-
-        $resultado = ($resultado = true) ? "El registro se ha realizado correctamente": $resultado;
-        break;
+            $resultado = ($resultado === true) ? "El registro se ha realizado correctamente": $resultado;
+            break;
+    }
+} else {
+    $resultado = (!isset($resultado)) ? "Ambos campos son necesarios" : $resultado;
 }
-
 ?>
 <!doctype html>
 <html lang="en">
