@@ -129,7 +129,7 @@ class DB
       if (!$this->con) {
          return "Error en la conexión";
       }
-      $table = strtolower($_SESSION["tabla"]);
+      $table = strtolower($_SESSION["tabla"])  ;
       $clavesPrimarias = $this->getClavesPrimarias();
 
       $stmt = "DELETE FROM $table WHERE ";
