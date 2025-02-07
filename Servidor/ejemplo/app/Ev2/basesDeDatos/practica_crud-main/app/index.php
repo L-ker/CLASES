@@ -8,9 +8,6 @@ $dotenv->load();
 
 //TODO
 /**
- * BASE DE DATOS:
- * cascada si no esta: https://www.youtube.com/watch?v=-ePYcp9eBbQ
- * 
  * GENERAL:
  * AJUSTAR CUALQUIER METODO DE DB QUE REQUIERA CLAVES PRIMARIAS AL MODELO CON ARRAY
  * falta seguro: EDITAR, 

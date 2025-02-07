@@ -61,8 +61,25 @@ class DB
  * Este método tendría que investigar en el diccionario de datos
  * Devolverá qué campos de esta tabla son claves foráneas
  * */
-   public function get_foraneas(string $tabla): array
+   public function get_foraneas(): array
    {
+      $table = strtolower($_SESSION["tabla"]);
+      $query = "SELECT COLUMN_NAME 
+                  FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE 
+                  WHERE TABLE_NAME = ? AND CONSTRAINT_NAME <> 'PRIMARY' 
+                  AND REFERENCED_TABLE_NAME IS NOT NULL";
+   
+      $stmt = $this->con->prepare($query);
+      $stmt->bind_param("s", $table);
+      $stmt->execute();
+      $result = $stmt->get_result();
+   
+      $clavesForaneas = [];
+      while ($row = $result->fetch_assoc()) {
+            $clavesForaneas[] = $row["COLUMN_NAME"];
+      }
+   
+      return $clavesForaneas;
    }
 
    public function getClavesPrimarias(): array
@@ -87,14 +104,22 @@ class DB
    }
 
 
-   public function get_campos(string $table):array
+   public function get_campos():array |bool
    {
       $campos = [];
       if (!$this->con) {
          return false;
       }
 
-         return $campos;
+      $tabla = strtolower($_SESSION["tabla"]);
+
+      $stmt = "SHOW COLUMNS FROM $tabla";
+      $resultado = $this->con->query($stmt);
+      while ($fila = $resultado->fetch_assoc()) {
+         $campos[] = $fila["Field"];
+      }
+      var_dump($campos);
+      return $campos;
 
    }
 
@@ -202,21 +227,6 @@ class DB
          return true;
       }
       return false;
-   }
-   
-
-   //Ejecuta una sentencia y retorna un mysql_stmt
-   //La sentencia hay que paraemtrizarla
-   //Recibo la sentencia con parámetros y un array indexado con los valores
-   private function ejecuta_sentencia(string $sql, array $datos): mysqli_stmt
-   {
-      $stmt=$this->con->stmt_init();
-
-
-
-
-
-      return $stmt;
    }
 
 }

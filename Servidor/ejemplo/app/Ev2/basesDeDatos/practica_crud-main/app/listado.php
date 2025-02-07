@@ -10,6 +10,10 @@
         header("Location: index.php");
         exit();
     }
+    if (!isset($_SESSION["tabla"])) {
+        header("Location: sitio.php");
+        exit();
+    }
 
     $db = new DB();
     $tabla = strtolower($_SESSION["tabla"]);
@@ -22,6 +26,10 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <!-- <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    > -->
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -31,6 +39,9 @@
 <body>
 <?php Plantilla::generar_header()?>
 <h1>Listado del contenido de tablas</h1>
+<form action="add.php">
+    <input type="submit" value="Añadir">
+</form>
 <?php
 
 switch ($accion) {

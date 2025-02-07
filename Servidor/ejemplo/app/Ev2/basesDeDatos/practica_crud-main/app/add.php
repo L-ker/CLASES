@@ -1,4 +1,20 @@
-<?php
+<?php session_start();
+    require 'vendor/autoload.php';
+    use Dotenv\Dotenv;
+    use App\Crud\DB;
+    use App\Crud\Plantilla;
+    $dotenv = Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+
+    $db = new DB();
+
+    $columnas = $db->get_campos();
+
+    $foraneas = $db->get_foraneas();
+
+    var_dump($columnas);
+    var_dump($foraneas);
+
 if (!isset($_SESSION["usuario"])) {
     header("Location: index.php");
     exit();
@@ -14,6 +30,8 @@ if (!isset($_SESSION["usuario"])) {
     <title>Document</title>
 </head>
 <body>
-
+    <?php 
+    
+    ?>
 </body>
 </html>

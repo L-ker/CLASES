@@ -31,6 +31,10 @@ FIN;
       echo "<hr>";
    }
 
+   public static function generar_formulario() {
+      $tabla = $_SESSION[];
+   }
+
    public static function crear_tabla($columnas, $filas): void {
 
    //    foreach ($array as $clave => $valor) {
