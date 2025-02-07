@@ -8,21 +8,24 @@ $dotenv->load();
 
 //TODO
 /**
+ * BASE DE DATOS:
  * cascada si no esta: https://www.youtube.com/watch?v=-ePYcp9eBbQ
  * 
- * hacer ajustes para primary keys, en random.txt hay ejemplos utles
+ * GENERAL:
+ * AJUSTAR CUALQUIER METODO DE DB QUE REQUIERA CLAVES PRIMARIAS AL MODELO CON ARRAY
+ * 
+ * hacer ajustes para primary keys, en random.txt hay ejemplos utiles
  * Basicamente necesito hacer que en los metodos relacionados con borrar y editar 
  * (tanto en la plantilla cuando genero la tabla como en los metodos de DB) donde se colocan las claves
  * primarias se haga un bucle que las coloque y he de hacer que se pasen por arrays por si se
  * selecciona un elemento de la tabla stock que tiene 2 tablas primarias 
  * 
+ * ADD:
  * Hacer la pagina de añadir entera
+ * Que salgan las foraneas en un select
  * 
+ * EXTRA:
  * revisar tema de mensajes, sesiones y campos ocultos PDF
- * 
- * Cambiar header a plantilla para ponerlo en todas partes
- * 
- * 
  */
 $opcion = $_POST['submit']??"";
 $db = ($opcion === "") ? "" : new DB();
@@ -47,6 +50,9 @@ if (!($nombre === "" || $password === "")) {
             $resultado = $db->registrar_usuario($nombre,$password);
 
             $resultado = ($resultado === true) ? "El registro se ha realizado correctamente": $resultado;
+            break;
+        case "Logout":
+            unset($_SESSION['usuario']);
             break;
     }
 } else {

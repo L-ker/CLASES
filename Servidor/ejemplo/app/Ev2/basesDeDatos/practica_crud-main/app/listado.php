@@ -13,8 +13,6 @@
 
     $db = new DB();
     $tabla = strtolower($_SESSION["tabla"]);
-    $filas = $db->get_filas($tabla);
-    $nombresColumnas = array_keys($filas[0]);
 
     var_dump($_POST);
     var_dump($_SESSION);
@@ -31,6 +29,7 @@
     <title>Document</title>
 </head>
 <body>
+<?php Plantilla::generar_header()?>
 <h1>Listado del contenido de tablas</h1>
 <?php
 
@@ -40,8 +39,10 @@ switch ($accion) {
     case "añadir":
         break;
     case "borrar":
-
+        $db->borrar_fila($_POST["codigo"]);
     default:
+    $filas = $db->get_filas($tabla);
+    $nombresColumnas = array_keys($filas[0]);
     Plantilla::crear_tabla($nombresColumnas, $filas);
 }
 ?>

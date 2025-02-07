@@ -65,6 +65,27 @@ class DB
    {
    }
 
+   public function getClavesPrimarias(): array
+   {
+      $tabla = strtolower($_SESSION["tabla"]);
+
+      $keys = [];
+      if (!$this->con) {
+      return $keys;
+      }
+
+      $stmt = $this->con->prepare("SHOW KEYS FROM $tabla WHERE Key_name = 'PRIMARY'");
+      $stmt->execute();
+      $resultado = $stmt->get_result();
+
+      while ($fila = $resultado->fetch_assoc()) {
+      $keys[] = $fila['Column_name'];
+      }
+
+      $stmt->close();
+      return $keys;
+   }
+
 
    public function get_campos(string $table):array
    {
@@ -103,18 +124,28 @@ class DB
 
    //Borra una fila de una tabla dada su código
    //Retorna un mensaje diciendo si lo ha podido borrar o no
-   public function borrar_fila(string $table,int $cod):string
+   public function borrar_fila(array $cods):string
    {
       if (!$this->con) {
          return "Error en la conexión";
       }
+      $table = strtolower($_SESSION["tabla"]);
+      $clavesPrimarias = $this->getClavesPrimarias();
 
-      $stmt = "DELETE FROM $table WHERE cod = ?";
+      $stmt = "DELETE FROM $table WHERE ";
+      $stmt .= implode(" = ? AND ", $clavesPrimarias) . " = ?";
+
       $stmt = $this->con->prepare($stmt);
-      $stmt->bind_param("i", $cod);
+      if (!$stmt) {
+      return "Error en la preparación de la consulta: " . $this->con->error;
+      }
+
+      $tipos = str_repeat("s", count($cods));
+
+      $stmt->bind_param($tipos, ...$cods);
+
       $stmt->execute();
       return ($stmt->affected_rows > 0) ? "Fila eliminada correctamente" : "No se encontró la fila";
-   
    }
 
    public function close()

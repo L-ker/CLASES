@@ -1,21 +1,15 @@
 <?php session_start();
+require 'vendor/autoload.php';
+use App\Crud\Plantilla;
     if (!isset($_SESSION["usuario"])) {
         header("Location: index.php");
         exit();
     }
     if (isset($_POST["submit"])) {
-        $opcion = $_POST["submit"];
-        switch ($opcion) {
-            case "Logout":
-                unset($_SESSION['usuario']);
-                // session_destroy();
-                header("Location: index.php");
-                exit();
-            default:
-                $_SESSION["tabla"] = $opcion;
-                header("Location: listado.php?");
-                exit();
-        }
+        $tabla = $_POST["submit"];
+        $_SESSION["tabla"] = $tabla;
+        header("Location: listado.php?");
+        exit();
     }
 
 ?>
@@ -29,15 +23,10 @@
     <link rel="stylesheet" href="estilo . css">
 </head>
 <body>
-<h1>Admin Panel</h1>
-
+<?php Plantilla::generar_header() ?>
 <!-- Navigation Buttons -->
 <div>
     <form action="sitio.php" method="post">
-        <div >
-            Conectado como <?=$_SESSION["usuario"]?>  <input class="btn btn - logout" type="submit" value="Logout" name="submit">
-        </div>
-        <hr/>
         <input class="btn btn - create" type="submit" value="Producto" name="submit">
         <input class="btn btn - edit" type="submit" value="Tienda" name="submit">
         <input class="btn btn - delete" type="submit" value="Usuarios" name="submit">
