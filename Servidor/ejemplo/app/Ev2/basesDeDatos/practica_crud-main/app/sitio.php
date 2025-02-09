@@ -27,7 +27,6 @@ use App\Crud\Plantilla;
 </head>
 <body>
 <?php Plantilla::generar_header() ?>
-<!-- Navigation Buttons -->
 <div>
     <form action="sitio.php" method="post">
         <input class="btn btn - create" type="submit" value="Producto" name="submit">
@@ -39,7 +38,6 @@ use App\Crud\Plantilla;
 
 </div>
 
-<!-- Placeholder for Future Content -->
 <div id="content">
     <p>Selecciona una opción para gestionar los elementos de la tienda.</p>
 </div>
