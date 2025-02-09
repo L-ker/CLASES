@@ -3,6 +3,7 @@
 namespace App\Crud;
 use App\Crud\DB;
 
+
 class Plantilla
 {
    
@@ -31,8 +32,32 @@ FIN;
       echo "<hr>";
    }
 
-   public static function generar_formulario() {
-      $tabla = $_SESSION[];
+   public static function generar_formulario($columnas, $foraneas) {
+      $tabla = $_SESSION["tabla"];
+      $db = new DB();
+      echo "<h1>Añadir fila a la tabla: $tabla</h1>";
+      echo "<hr>";
+      echo "<form action='add.php' method='POST'>";
+      if (in_array("cod", $columnas)) {
+         unset($columnas[0]);
+      }
+      foreach ($columnas as $columna) {
+         echo "<label for='$columna'>$columna</label>";
+         echo "<input type='text' name='datos[$columna]'><br>";
+      }
+      foreach ($foraneas as $foranea) {
+         echo "<label>cod $foranea</label>";
+         echo "<select name='datos[$foranea]'>";
+         $valorForanea = $db->getValoresColumna($foranea);
+         var_dump($valorForanea);
+         foreach ($valorForanea as $valor) {
+            echo "<option>$valor</option>";
+         }
+      echo "</select><br>";
+      }
+      echo "<input type='submit' name='submit' value='Enviar'>";
+      echo "<input type='submit' name='submit' value='Volver'>";
+      echo "</form>";
    }
 
    public static function crear_tabla($columnas, $filas): void {
@@ -59,15 +84,15 @@ FIN;
          }
          $db = new DB();
          $clavesPrimarias = $db->getClavesPrimarias();
-         echo "<td>
-         <form action='listado.php' method='POST'>";
-         for ($i = 0 ; $i < count($clavesPrimarias); $i++) {
-            $codigo = $fila[$columnas[$i]];
-            echo "<input type='hidden' name='codigo[]' value='$codigo'>";
-         }
-         echo"<button type='submit' name='accion' value='editar'>".self::EDIT."</button>
-         </form>
-         </td>";
+         // echo "<td>
+         // <form action='listado.php' method='POST'>";
+         // for ($i = 0 ; $i < count($clavesPrimarias); $i++) {
+         //    $codigo = $fila[$columnas[$i]];
+         //    echo "<input type='hidden' name='codigo[]' value='$codigo'>";
+         // }
+         // echo"<button type='submit' name='accion' value='editar'>".self::EDIT."</button>
+         // </form>
+         // </td>";
 
          echo "<td>
          <form action='listado.php' method='POST'>";

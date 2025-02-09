@@ -18,9 +18,6 @@
     $db = new DB();
     $tabla = strtolower($_SESSION["tabla"]);
 
-    var_dump($_POST);
-    var_dump($_SESSION);
-
     $accion = $_POST["accion"] ?? "tabla";
 ?>
 <!doctype html>
@@ -41,6 +38,9 @@
 <h1>Listado del contenido de tablas</h1>
 <form action="add.php">
     <input type="submit" value="Añadir">
+</form>
+<form action="sitio.php" method="POST">
+    <input type="submit" name="volver" value="Volver">
 </form>
 <?php
 

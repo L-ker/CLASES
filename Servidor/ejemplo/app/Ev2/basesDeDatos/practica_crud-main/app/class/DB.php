@@ -63,23 +63,38 @@ class DB
  * */
    public function get_foraneas(): array
    {
-      $table = strtolower($_SESSION["tabla"]);
-      $query = "SELECT COLUMN_NAME 
+      $tabla = strtolower($_SESSION["tabla"]);
+      $stmt = "SELECT COLUMN_NAME 
                   FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE 
                   WHERE TABLE_NAME = ? AND CONSTRAINT_NAME <> 'PRIMARY' 
                   AND REFERENCED_TABLE_NAME IS NOT NULL";
    
-      $stmt = $this->con->prepare($query);
-      $stmt->bind_param("s", $table);
+      $stmt = $this->con->prepare($stmt);
+      $stmt->bind_param("s", $tabla);
       $stmt->execute();
-      $result = $stmt->get_result();
+      $resultado = $stmt->get_result();
    
       $clavesForaneas = [];
-      while ($row = $result->fetch_assoc()) {
-            $clavesForaneas[] = $row["COLUMN_NAME"];
+      while ($fila = $resultado->fetch_assoc()) {
+            $clavesForaneas[] = $fila["COLUMN_NAME"];
       }
    
       return $clavesForaneas;
+   }
+
+   public function getValoresColumna($columna) {
+      $tabla = strtolower($_SESSION["tabla"]);
+      $stmt = "SELECT DISTINCT $columna
+               FROM $tabla";
+      $stmt = $this->con->prepare($stmt);
+      $stmt->execute();
+      $resultado = $stmt->get_result();
+      $valores = [];
+      $clavesForaneas = [];
+      while ($fila = $resultado->fetch_assoc()) {
+            $valores[] = $fila[$columna];
+      }
+      return $valores;
    }
 
    public function getClavesPrimarias(): array
@@ -118,7 +133,6 @@ class DB
       while ($fila = $resultado->fetch_assoc()) {
          $campos[] = $fila["Field"];
       }
-      var_dump($campos);
       return $campos;
 
    }
@@ -180,13 +194,35 @@ class DB
 
    // Añade una fila cuyos valores se pasan en un array.
    //Tengo el nombre de la tabla y el array ["nombre_Campo"=>"valor"]
-   public function add_fila(string $tabla,array $campos){
-
+   public function add_fila(array $datos){
 
       if (!$this->con) {
          return false;
 
       }
+
+      $tabla = strtolower($_SESSION["tabla"]);
+
+      $stmt = "INSERT INTO $tabla (";
+      $columnas = array_keys($datos);
+      $stmt .= implode(",",$columnas);
+      $stmt .= ") VALUES (";
+      for ($i = 0; $i < count($datos); $i++) {
+         $stmt .= ($i > 0 ? ", " : "") . "?";
+     }
+      $stmt .= ")";
+
+      $stmt = $this->con->prepare($stmt);
+      if (!$stmt) {
+         return false;
+      }
+
+      $tipos = str_repeat("s", count($datos));
+      $valores = array_values($datos);
+      $stmt->bind_param($tipos,...$valores);
+      $stmt->execute();
+
+      return $stmt->affected_rows > 0;
 
    }
 

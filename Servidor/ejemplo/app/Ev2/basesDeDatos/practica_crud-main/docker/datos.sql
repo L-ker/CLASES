@@ -11,7 +11,7 @@ CREATE TABLE  `usuarios` (
                            `password` VARCHAR( 250 ) NULL
 ) ENGINE = INNODB;
 CREATE TABLE  `producto` (
-                             `cod` VARCHAR( 12 ) NOT NULL ,
+                             `cod` INT NOT NULL ,
                              `nombre` VARCHAR( 200 ) NULL ,
                              `nombre_corto` VARCHAR( 50 ) NOT NULL ,
                              `descripcion` TEXT NULL ,

@@ -11,6 +11,9 @@ use App\Crud\Plantilla;
         header("Location: listado.php?");
         exit();
     }
+    if (isset($_POST["Volver"])) {
+        unset($_SESSION["tabla"]);
+    }
 
 ?>
 
