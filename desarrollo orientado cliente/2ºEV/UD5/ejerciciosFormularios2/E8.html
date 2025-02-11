@@ -1,11 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio 8</title>
 </head>
 <body>
-    
+    <h2>Registro de Usuario</h2>
+    <form id="userForm" action="alta.php" method="post">
+        <label>Nombre: <input type="text" id="nombre"></label><br>
+        <label>Apellido: <input type="text" id="apellido"></label><br>
+        <label>DNI: <input type="text" id="dni"></label><br>
+        <label>Email: <input type="email" id="email"></label><br>
+        <label>Contraseña: <input type="password" id="password"></label><br>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <h2>Datos Bancarios</h2>
+    <form id="bankForm" action="pasarelaPago.php" method="post">
+        <label>Número de cuenta: <input type="text" id="cuenta"></label><br>
+        <label>CVV: <input type="text" id="cvv"></label><br>
+        <label>Clave: <input type="password" id="clave"></label><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+    let nombre = document.getElementById('nombre').value.trim();
+    let apellido = document.getElementById('apellido').value.trim();
+    let dni = document.getElementById('dni').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let password = document.getElementById('password').value.trim();
+
+    let dniPattern = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/;
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    let passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/;
+
+    if (!nombre || !apellido || !dni || !email || !password) {
+        alert('Todos los campos son obligatorios.');
+        event.preventDefault();
+        return;
+    }
+    if (!dniPattern.test(dni)) {
+        alert('El DNI debe contener exactamente 8 dígitos.');
+        event.preventDefault();
+        return;
+    }
+    if (!emailPattern.test(email)) {
+        alert('El formato del Email no es válido.');
+        event.preventDefault();
+        return;
+    }
+    if (!passwordPattern.test(password)) {
+        alert('La contraseña debe tener al menos 8 caracteres, incluir una mayúscula, una minúscula, un número y un carácter especial.');
+        event.preventDefault();
+        return;
+    }
+});
+
+document.getElementById('bankForm').addEventListener('submit', function(event) {
+    let cuenta = document.getElementById('cuenta').value.trim();
+    let cvv = document.getElementById('cvv').value.trim();
+    let clave = document.getElementById('clave').value.trim();
+
+    if (!cuenta || !cvv || !clave) {
+        alert('Todos los campos son obligatorios.');
+        event.preventDefault();
+        return;
+    }
+    if (!/^\d{24}$/.test(cuenta)) {
+        alert('El número de cuenta debe tener 24 dígitos.');
+        event.preventDefault();
+        return;
+    }
+    if (!/^\d{3}$/.test(cvv)) {
+        alert('El CVV debe tener exactamente 3 dígitos.');
+        event.preventDefault();
+        return;
+    }
+    if (!/^\d{4}$/.test(clave)) {
+        alert('La clave debe contener exactamente 4 números.');
+        event.preventDefault();
+        return;
+    }
+});
+    </script>
 </body>
 </html>

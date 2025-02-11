@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio 7</title>
 </head>
 <body>
-    
+    <h2>Ejercicio 7</h2>
+    <form id="formEj7">
+        Nombre: <input type="text" required><br>
+        NIF: <input type="text" id="dni" required><br>
+        Email: <input type="email" id="email" required><br>
+        País: <input type="text" id="pais" required><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <script>
+        document.getElementById('formEj7').addEventListener('submit', validarEjercicio7);
+
+function validarEjercicio7(event) {
+    event.preventDefault();
+    let pais = document.getElementById("pais").value;
+    let email = document.getElementById("email").value;
+    let dni = document.getElementById("dni").value;
+    let emailRegex = /^[a-zA-Z0-9._%+-]+@(hotmail|yahoo)\.es$/;
+    let dniRegex = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/;
+
+    if (pais.toLowerCase() !== "españa" && pais.toLowerCase !== "italia") {
+        alert("El país debe ser España o Italia.");
+        return;
+    }
+    if (!emailRegex.test(email)) {
+        alert("El correo debe ser de Hotmail o Yahoo y con dominio .es.");
+        return;
+    }
+    if (!dniRegex.test(dni)) {
+        alert("El DNI debe tener 8 números seguidos de una letra válida.");
+        return;
+    }
+    alert("Formulario Ejercicio 7 enviado correctamente.");
+}
+    </script>
 </body>
 </html>

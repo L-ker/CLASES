@@ -9,7 +9,7 @@ $dotenv->load();
 //TODO
 /**
  * GENERAL:
- * CAMBIAR CODS A INT Y AÑADIR AUTOINCREMENTAL * 
+ * CAMBIAR CODS A INT Y AÑADIR AUTOINCREMENTAL
  */
 $opcion = $_POST['submit']??"";
 $db = ($opcion === "") ? "" : new DB();
