@@ -1,13 +1,14 @@
 (PAG X)
 1)
-(LISTENING ?)
-2-
-3- A, relaxing in the resort
-4- B-A
-5- A, focus on unusual details
-6- 
-7-
-8-
+(LISTENING UNIT 10)
+3)
+	2- C, it had an unusual effect on someone
+	3- A, relaxing in the resort
+	4- B, the dramatic apparence of the rocks
+	5- A, focus on unusual details
+	6- B, one of the competitors
+	7- C, the mission quarter
+	8- A, to get work
 
 (LISTENING UNIT 9)
 1- computer
