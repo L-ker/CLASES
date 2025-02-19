@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" id="campo" style="display: block"/>
+      <input
+        type="button"
+        id="boton"
+        name="boton"
+        value="mostrar-ocultar"
+        onclick="procesa();"
+      />
+    </form>
+
+    <script>
+      function procesa() {
+        var campo = document.getElementById("campo");
+        if (campo.getAttribute("style") == "display: block") {
+          campo.setAttribute("style", "display: none");
+        } else {
+          campo.setAttribute("style", "display: block");
+        }
+      }
+    </script>
+  </body>
+</html>

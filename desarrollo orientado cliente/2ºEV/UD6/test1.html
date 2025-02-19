@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Aprendiendo DOM</title>
+</head>
+<body>
+    <!-- <p>Aprendiendo DOM</p>
+    <p>DOM es sencillo de aprender</p>
+    <p>Ademas, DOM es muy potente</p> -->
+
+    <div id="d1">
+        <p>Este es el primer parrafo</p>
+    </div>
+
+    <script type="text/javascript">
+        // let objeto_html = document.documentElement; 
+
+        // let objeto_head = objeto_html.firstChild;
+        // let objeto_body = objeto_html.lastChild;
+
+        // console.log(objeto_head);
+        // console.log(objeto_body);
+        // console.log(objeto_html.childNodes);
+        // console.log(objeto_html.childNodes.length);
+        // console.log(objeto_html.childNodes[1]);
+
+        document.getElementById("d1").innerHTML += "<p>Este es el segundo párrafo</p>"
+
+        let d=document.getElementById("d1");
+        let p=document.createElement("p");
+        let t=document.createTextNode("Este es el segundo párrafo");
+        p.appendChild(t);
+        d.appendChild(p); 
+
+    </script>
+</body>
+</html>
