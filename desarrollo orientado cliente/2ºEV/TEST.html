@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </style>
+</head>
+<body>
+    <div id="miDiv">
+        Visible
+        <span style="display: none;">Oculto</span>
+    </div>
+    
+    <script>
+let div = document.getElementById("miDiv");
+
+console.log("textContent:", div.textContent); // "Visible Oculto"
+console.log("innerText:", div.innerText);     // "Visible"
+    </script>
+</body>
+</html>
