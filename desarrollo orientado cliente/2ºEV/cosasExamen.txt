@@ -1,10 +1,11 @@
-1 ejercicio si o si tabla, otro POSIBLEMENTE formulario
-revisar ejercicio editar tabla y hacer un hundir la flota pocho
+//ejercicio si o si tabla, otro POSIBLEMENTE formulario
+/revisar ejercicio editar tabla y hacer un hundir la flota pocho
 repasar un poco teoria y ejercicios pochos de cada tema
 UD 4-7  
-repasar tema de hacer tablas y formularios
-revisar cargar el script despues del dom dando igual donde esta loadeado
+/repasar tema de hacer tablas y formularios
+//revisar cargar el script despues del dom dando igual donde esta loadeado
 listeners se tienen que utilziar con funciones flecha
 metodos modificar DOM propios del DOM asi que repasarlo (no InnerHTML) tema appendChild, crear elemento, modificar atributos, donde va, todo eso basicamente
-mecanimos ¿anti?Asincronia, como se leen ficheros ficheros JSON, ejercicio resuelto de listas provincias y municipios, leer con php
+/mecanimos ¿anti?Asincronia, como se leen ficheros ficheros JSON, ejercicio resuelto de listas provincias y municipios, leer con php
 propagacion examen test
+//tablas

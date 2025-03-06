@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .tablero {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-template-rows: repeat(10, 30px);
+    gap: 2px;
+    margin: 10px;
+  }
+  
+  .celda {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    background-color: #b3cde0;
+  }
+  
+  .celda.barco {
+    background-color: #333;
+  }
+  
+  .celda.hundido {
+    background-color: #ff0000;
+  }
+  
+  .celda.agua {
+    background-color: #87cefa;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }
+  
