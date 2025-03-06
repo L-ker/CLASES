@@ -1,0 +1,299 @@
+document.querySelectorAll("button").forEach(boton => {
+    boton.addEventListener("click", () => {
+        console.log("Has hecho clic en un botón");
+    });
+});
+document.querySelectorAll("[name='opcion']").forEach(elemento => {
+    elemento.addEventListener("change", () => {
+        console.log("Has cambiado el valor de un input con name='opcion'");
+    });
+});
+document.querySelectorAll(".mi-clase").forEach(elemento => {
+    elemento.addEventListener("mouseover", () => {
+        console.log("Has pasado el ratón sobre un elemento con clase 'mi-clase'");
+    });
+});
+document.querySelectorAll("button").forEach(boton => {
+    boton.addEventListener("click", () => console.log("¡Botón clickeado!"));
+});
+document.querySelector("input").addEventListener("input", (e) => {
+    console.log(`Texto ingresado: ${e.target.value}`);
+});
+document.querySelectorAll(".resaltable").forEach(elemento => {
+    elemento.addEventListener("mouseover", () => elemento.style.color = "red");
+});
+document.querySelector("#miDiv").addEventListener("dblclick", () => {
+    document.querySelector("#miDiv").style.display = "none";
+});
+document.querySelector("#miFormulario").addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log("Formulario enviado sin recargar la página.");
+});
+click	Se dispara cuando el usuario hace clic en un elemento.
+dblclick	Se dispara cuando el usuario hace doble clic.
+mousedown	Se dispara cuando se presiona un botón del mouse.
+mouseup	Se dispara cuando se suelta un botón del mouse.
+mousemove	Se dispara cuando el mouse se mueve sobre un elemento.
+mouseover	Se dispara cuando el mouse entra en un elemento.
+mouseout	Se dispara cuando el mouse sale de un elemento.
+contextmenu	Se dispara cuando se hace clic derecho (abre el menú contextual).
+
+keydown	Se dispara cuando se presiona una tecla.
+keyup	Se dispara cuando se suelta una tecla.
+keypress (obsoleto)	Similar a keydown, pero no detecta teclas como Shift o Esc.
+
+submit	Se dispara cuando se envía un formulario.
+change	Se dispara cuando un campo de entrada cambia de valor.
+input	Se dispara cuando el usuario escribe en un campo <input>.
+focus	Se dispara cuando un elemento recibe el foco.
+blur	Se dispara cuando un elemento pierde el foco.
+reset	Se dispara cuando se resetea un formulario.
+
+load	Se dispara cuando la página ha terminado de cargar.
+DOMContentLoaded	Se dispara cuando el DOM está completamente cargado.
+resize	Se dispara cuando la ventana cambia de tamaño.
+scroll	Se dispara cuando el usuario hace scroll en la página.
+unload	Se dispara cuando la página se está cerrando.
+beforeunload	Se dispara antes de que el usuario abandone la página.
+
+document.querySelector("button").addEventListener("click", (e) => {
+    e.stopPropagation(); // Evita que el evento se propague al contenedor padre
+    console.log("Botón clickeado");
+});
+
+document.querySelector("a").addEventListener("click", (e) => {
+    e.preventDefault(); // Evita que el enlace navegue
+    console.log("Enlace bloqueado");
+});
+
+
+TEMA 7:
+Tema 7: Utilización de mecanismos de comunicación asíncrona
+La comunicación asíncrona permite que una aplicación ejecute tareas en segundo plano sin bloquear la interfaz del usuario. En JavaScript, esto se logra con tecnologías como IndexedDB y AJAX.
+
+7.1. Acceso a datos con IndexedDB
+IndexedDB es una base de datos del navegador que permite almacenar grandes cantidades de datos estructurados.
+
+7.1.1 Crear y abrir la base de datos
+Se utiliza indexedDB.open(nombre, versión) para abrir o crear una base de datos.
+
+7.1.2 Control de versiones
+Cada base de datos tiene una versión. Si se intenta abrir con una versión superior, se dispara el evento onupgradeneeded.
+
+7.1.3 Crear almacén de objetos
+Los datos se almacenan en "almacenes de objetos" (objectStore). Se crean usando db.createObjectStore(nombre, opciones).
+
+7.1.4 Insertar objetos en el almacén de datos
+Se usa una transacción (transaction) y el método add() o put() para insertar datos.
+
+7.1.5 Obtener objetos del almacén
+Para recuperar datos, se usa get(clave) dentro de una transacción de solo lectura.
+
+7.1.6 Eliminar objetos del almacén
+Los elementos pueden eliminarse con delete(clave) dentro de una transacción.
+
+7.2. Comunicación Asíncrona con AJAX
+AJAX (Asynchronous JavaScript and XML) permite la comunicación con servidores sin recargar la página.
+
+7.2.1 Introducción a Ajax
+Es una técnica para cargar datos de forma dinámica usando JavaScript.
+
+7.2.2 Requisitos para la comunicación asíncrona
+Se necesita un navegador compatible, un servidor web y una API como XMLHttpRequest o fetch().
+
+7.2.3 API y Métodos del objeto XMLHttpRequest
+Los métodos principales son:
+
+open(método, URL, async): Inicializa la solicitud.
+send(): Envía la solicitud al servidor.
+7.2.4 Propiedades del objeto XMLHttpRequest
+Algunas importantes son:
+
+readyState: Indica el estado de la solicitud.
+status: Código de respuesta HTTP.
+responseText: Contiene la respuesta del servidor.
+7.2.5 XMLHttpRequest
+Ejemplo de uso:
+
+javascript
+Copiar
+Editar
+let xhr = new XMLHttpRequest();
+xhr.open("GET", "datos.json", true);
+xhr.onload = () => console.log(xhr.responseText);
+xhr.send();
+7.2.6 Ajax y JSON
+JSON (JavaScript Object Notation) es un formato ligero para intercambiar datos con AJAX.
+
+7.2.7 Ejercicios con JSON
+Normalmente incluyen solicitudes a APIs y procesamiento de datos en formato JSON.
+
+7.3 Ajax con librería jQuery
+jQuery simplifica el uso de AJAX con métodos como $.ajax() y $.getJSON(), que permiten hacer solicitudes de manera más sencilla.
+
+Ejemplo con jQuery:
+
+javascript
+Copiar
+Editar
+$.getJSON("datos.json", data => console.log(data));
+7.4. Bibliografía
+Lista de fuentes utilizadas en el contenido.
+
+7.5. Agradecimientos y reconocimiento
+Reconocimiento a personas o instituciones que contribuyeron al documento.
+
+Ejemplo 1: Recoger datos de un archivo JSON con AJAX
+📌 Archivo datos.json (datos simulados)
+
+json
+Copiar
+Editar
+[
+    { "id": 1, "nombre": "Juan", "edad": 25 },
+    { "id": 2, "nombre": "María", "edad": 30 },
+    { "id": 3, "nombre": "Carlos", "edad": 28 }
+]
+📌 AJAX con fetch() para leer el JSON
+
+javascript
+Copiar
+Editar
+fetch("datos.json")
+    .then(response => response.json())  // Convertimos la respuesta a JSON
+    .then(data => {
+        data.forEach(persona => {
+            console.log(`ID: ${persona.id}, Nombre: ${persona.nombre}, Edad: ${persona.edad}`);
+        });
+    })
+    .catch(error => console.error("Error al cargar JSON:", error));
+🔹 Explicación: fetch() obtiene el archivo datos.json, lo convierte a JSON y muestra cada persona en la consola.
+
+Ejemplo 2: Recoger datos desde un script PHP con AJAX
+📌 Archivo datos.php (Genera JSON dinámicamente desde PHP)
+
+php
+Copiar
+Editar
+<?php
+$personas = [
+    ["id" => 1, "nombre" => "Ana", "edad" => 22],
+    ["id" => 2, "nombre" => "Pedro", "edad" => 35],
+    ["id" => 3, "nombre" => "Lucía", "edad" => 29]
+];
+
+header('Content-Type: application/json'); // Indicamos que devuelve JSON
+echo json_encode($personas); // Convertimos el array PHP en JSON
+?>
+📌 AJAX con fetch() para recibir datos desde PHP
+
+javascript
+Copiar
+Editar
+fetch("datos.php")
+    .then(response => response.json())  
+    .then(data => {
+        data.forEach(persona => {
+            console.log(`ID: ${persona.id}, Nombre: ${persona.nombre}, Edad: ${persona.edad}`);
+        });
+    })
+    .catch(error => console.error("Error al cargar datos:", error));
+🔹 Explicación: fetch("datos.php") hace una petición al servidor PHP, que devuelve un JSON con los datos de las personas.
+
+Ejemplo 3: AJAX con jQuery desde PHP
+Si prefieres usar jQuery, aquí tienes una versión similar usando $.getJSON().
+
+javascript
+Copiar
+Editar
+$.getJSON("datos.php", function(data) {
+    data.forEach(persona => {
+        console.log(`ID: ${persona.id}, Nombre: ${persona.nombre}, Edad: ${persona.edad}`);
+    });
+});
+Estos ejemplos te permiten recoger datos de un JSON estático o de un script PHP dinámico usando AJAX.
+¿Necesitas que adapte el código a otro escenario específico? 🚀
+
+Ejemplo Provincias:
+Para recoger los datos de estos documentos XML generados por PHP en JavaScript, puedes hacer una petición AJAX con fetch(), procesar la respuesta como XML y extraer la información.
+
+1️⃣ Obtener las provincias
+Puedes hacer una petición al primer PHP (provincias.php en este ejemplo) para obtener la lista de provincias:
+
+javascript
+Copiar
+Editar
+fetch("provincias.php")
+  .then(response => response.text()) // Obtener el contenido como texto
+  .then(str => new window.DOMParser().parseFromString(str, "application/xml")) // Convertir a XML
+  .then(data => {
+    const provincias = data.getElementsByTagName("provincia");
+    let selectProvincias = document.getElementById("provincias");
+
+    for (let provincia of provincias) {
+      let codigo = provincia.getElementsByTagName("codigo")[0].textContent;
+      let nombre = provincia.getElementsByTagName("nombre")[0].textContent;
+      
+      let option = document.createElement("option");
+      option.value = codigo;
+      option.textContent = nombre;
+      selectProvincias.appendChild(option);
+    }
+  })
+  .catch(error => console.error("Error cargando provincias:", error));
+2️⃣ Obtener los municipios de una provincia seleccionada
+Cuando el usuario seleccione una provincia, se enviará su código al segundo PHP (municipios.php en este ejemplo) para obtener sus municipios.
+
+javascript
+Copiar
+Editar
+document.getElementById("provincias").addEventListener("change", function() {
+  let codigoProvincia = this.value;
+  
+  fetch("municipios.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: "provincia=" + encodeURIComponent(codigoProvincia)
+  })
+  .then(response => response.text())
+  .then(str => new window.DOMParser().parseFromString(str, "application/xml"))
+  .then(data => {
+    const municipios = data.getElementsByTagName("municipio");
+    let selectMunicipios = document.getElementById("municipios");
+    selectMunicipios.innerHTML = ""; // Limpiar antes de añadir nuevos
+
+    for (let municipio of municipios) {
+      let codigo = municipio.getElementsByTagName("codigo")[0].textContent;
+      let nombre = municipio.getElementsByTagName("nombre")[0].textContent;
+      
+      let option = document.createElement("option");
+      option.value = codigo;
+      option.textContent = nombre;
+      selectMunicipios.appendChild(option);
+    }
+  })
+  .catch(error => console.error("Error cargando municipios:", error));
+});
+3️⃣ HTML de ejemplo
+Incluye dos <select> en tu HTML para que el usuario pueda elegir una provincia y ver sus municipios:
+
+html
+Copiar
+Editar
+<select id="provincias">
+  <option value="">Selecciona una provincia</option>
+</select>
+
+<select id="municipios">
+  <option value="">Selecciona un municipio</option>
+</select>
+
+<script src="script.js"></script> <!-- Enlaza el script donde tienes los fetch -->
+🔹 Explicación rápida:
+
+fetch("provincias.php"): Pide el XML de provincias.
+DOMParser() convierte el XML en un objeto manipulable.
+Se llenan las opciones del <select> con provincias.
+Cuando el usuario elige una provincia, se manda el código con POST a municipios.php.
+Se obtiene el XML de municipios y se llena el <select> correspondiente.
+Si necesitas alguna mejora o adaptación, dime. 🚀
